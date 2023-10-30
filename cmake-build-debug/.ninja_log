@@ -1,0 +1,8 @@
+# ninja log v5
+13	688	7203876766519077	CMakeFiles/chess.dir/main.cpp.obj	842ffb1361e4635
+26	2718	7203876786800228	CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.obj	7e5ce51422a4eeea
+41	2915	7203876788775354	CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.obj	6cc43e1a99a53de5
+1	3668	7203876796233423	CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj	501a4407d86cb3af
+3669	4467	7203876804091544	chess.exe	da7a327d28a91392
+22	4702	7203877288670071	CMakeFiles/chess.dir/main.cpp.obj	842ffb1361e4635
+4704	5140	7203877292924262	chess.exe	da7a327d28a91392

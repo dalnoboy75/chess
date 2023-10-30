@@ -1,0 +1,7 @@
+C:/Projects/chess/cmake-build-debug/CMakeFiles/chess.dir
+C:/Projects/chess/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Projects/chess/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Projects/chess/cmake-build-debug/CMakeFiles/list_install_components.dir
+C:/Projects/chess/cmake-build-debug/CMakeFiles/install.dir
+C:/Projects/chess/cmake-build-debug/CMakeFiles/install/local.dir
+C:/Projects/chess/cmake-build-debug/CMakeFiles/install/strip.dir
