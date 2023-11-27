@@ -29,9 +29,22 @@ link_directories(
 add_executable(
         ${TARGET}
         main.cpp
+        board.h
+        board.cpp
+        cell.h
+        cell.cpp
+        checker.h
+        checker.cpp
+        ${LIB_DIR}/Graph_lib/fltk.h
+        ${LIB_DIR}/Graph_lib/Graph.h
+        ${LIB_DIR}/Graph_lib/GUI.h
+        ${LIB_DIR}/Graph_lib/Point.h
+        ${LIB_DIR}/Graph_lib/Simple_window.h
+        ${LIB_DIR}/Graph_lib/Window.h
         ${LIB_DIR}/Graph_lib/Graph.cpp
         ${LIB_DIR}/Graph_lib/GUI.cpp
         ${LIB_DIR}/Graph_lib/Window.cpp
+
 )
 
 target_link_libraries(
