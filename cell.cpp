@@ -1,5 +1,5 @@
 #include "cell.h"
-#include "checker.h"
+#include "figures.h"
 using namespace Graph_lib;
 
 Cell::Cell(Point xy, Callback cb, Type t)
@@ -25,18 +25,18 @@ void Cell::reset_color()
     pw->color(Color::white);
 }
 
-void Cell::attach_checker(Checker& ch)
+void Cell::attach_figure(Figure& f)
 {
-  ch.attach(*this);
-  checker = &ch;
+  f.attach(*this);
+  figure = &f;
 }
 
-Checker& Cell::detach_checker()
+Figure& Cell::detach_figure()
 {
-  Checker* ch = checker;
-  checker = nullptr;
-  ch->detach();
-  return *ch;
+  Figure* f = figure;
+  figure = nullptr;
+  f->detach();
+  return *f;
 }
 
-Checker& Cell::get_checker() { return *checker; }
+Figure& Cell::get_figure() { return *figure; }

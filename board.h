@@ -1,8 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
-
+#include "figures.h"
 #include "cell.h"
-#include "checker.h"
 using Graph_lib::Address;
 using Graph_lib::Point;
 

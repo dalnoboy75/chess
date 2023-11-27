@@ -5,7 +5,7 @@
 
 using Graph_lib::Point;
 
-struct Checker;
+struct Figure;
 
 struct Cell : Graph_lib::Button
 {
@@ -34,15 +34,15 @@ struct Cell : Graph_lib::Button
     return Point{loc.x + width / 2, loc.y + height / 2};
   }
 
-  void attach_checker (Checker& ch);
+  void attach_figure (Figure& f);
 
-  Checker& detach_checker ();
+  Figure& detach_figure ();
 
-  bool has_checker() const{
-    return checker != nullptr;
+  bool has_figure() const{
+    return figure != nullptr;
   }
 
-  Checker& get_checker();
+  Figure& get_figure();
 
   static constexpr int size = 90;
 
@@ -51,7 +51,7 @@ private:
 
   void reset_color ();
 
-  Checker* checker{nullptr};
+  Figure* figure{nullptr};
 };
 
 

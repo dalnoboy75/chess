@@ -70,34 +70,28 @@ Chessboard::Chessboard (Point xy)
 
 void Chessboard::clicked (Cell& c)
 {
-  if (!c.is_black())
-    return;
-
   if (!selected)
   {
     selected = &c;
     c.activate();
   }
+  else if (c.has_figure() && selected){
+      selected->deactivate();
+      selected = &c;
+      c.activate();
+  }
   else
   {
-    if (selected -> has_checker())
+    if (selected -> has_figure())
     {
       //move figure
       Cell& c1 = *selected;
-      c.attach_checker(c1.detach_checker());
-      
+      c.attach_figure(c1.detach_figure());
+
     }
     selected->deactivate();
-
-    if (selected == &c)       // reset selection
-    {
       selected = nullptr;
-    }
-    else                      // choose another cell
-    {
-      selected = &c;
-      c.activate();
-    }
+      c.deactivate();
   }
 
   Fl::redraw();
