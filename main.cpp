@@ -3,7 +3,7 @@
 
 #include "board.h"
 #include "cell.h"
-#include "checker.h"
+#include "figures.h"
 using namespace Graph_lib;
 
 int ex_my_window ()
@@ -16,8 +16,8 @@ int ex_my_window ()
 int ex_chessboard ()
 {
   Chessboard board{Point{100, 100}};
-  WhiteChecker w{board};
-  board.at('a',1).attach_checker(w);
+  Pawn p(board,"pieces.png",Point{550, 15},true);
+  board.at('b',2).attach_figure(p);
   board.wait_for_button();
   return 0;
   // return gui_main();

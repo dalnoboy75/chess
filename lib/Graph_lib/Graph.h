@@ -475,7 +475,6 @@ struct Image : Shape
     Shape::move(dx, dy);
     p->draw(point(0).x, point(0).y);
   }
-
 private:
   int w, h, cx, cy;  // define "masking box" within image relative to position (cx,cy)
   Fl_Image* p;
