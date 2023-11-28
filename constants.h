@@ -4,4 +4,5 @@
 using namespace Graph_lib;
 constexpr char pawn = 'p';
 constexpr Point white_pawn{550,15};
+constexpr Point black_pawn{550,122};
 #endif //CHESS_CONSTANTS_H

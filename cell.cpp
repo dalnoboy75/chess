@@ -20,7 +20,7 @@ void Cell::reset_color()
     error("Cell is not attached to a window");
 
   if (is_black())
-    pw->color(Color::black);
+    pw->color(FL_GRAY);
   else
     pw->color(Color::white);
 }
