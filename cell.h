@@ -15,7 +15,7 @@ struct Cell : Graph_lib::Button
     white
   };
 
-  Cell(Point xy, Graph_lib::Callback cb, Type t);
+  Cell(Point xy, Graph_lib::Callback cb, Type t, int number, int symbol);
 
   void attach (Graph_lib::Window& win) override;
 
@@ -45,13 +45,15 @@ struct Cell : Graph_lib::Button
   Figure& get_figure();
 
   static constexpr int size = 90;
-
+    int number;
+    int symbol;
 private:
   Type type;
 
   void reset_color ();
 
   Figure* figure{nullptr};
+
 };
 
 

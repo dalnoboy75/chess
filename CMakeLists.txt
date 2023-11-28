@@ -46,6 +46,7 @@ add_executable(
         ${LIB_DIR}/Graph_lib/Window.cpp
         figures.h
         figures.cpp
+        constants.h
 
 )
 

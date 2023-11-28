@@ -2,8 +2,8 @@
 #include "figures.h"
 using namespace Graph_lib;
 
-Cell::Cell(Point xy, Callback cb, Type t)
-    : Button{xy, size, size, "", cb}, type{t}
+Cell::Cell(Point xy, Callback cb, Type t, int number, int symbol)
+    : Button{xy, size, size, "", cb}, type{t}, number{number}, symbol{symbol}
 {
   /* All done */
 }

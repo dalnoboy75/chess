@@ -6,17 +6,11 @@
 #include "figures.h"
 using namespace Graph_lib;
 
-int ex_my_window ()
-{
-  My_window win{Point{100, 100}, 600, 50, "My window"};
-  win.wait_for_button();
-  return gui_main();
-}
 
 int ex_chessboard ()
 {
   Chessboard board{Point{100, 100}};
-  Pawn p(board,"pieces.png",Point{550, 15},true);
+  Pawn p(board,"pieces.png",white_pawn,true);
   board.at('b',2).attach_figure(p);
   board.wait_for_button();
   return 0;

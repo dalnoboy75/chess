@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "constants.h"
 #include "board.h"
 
 using namespace Graph_lib;
@@ -47,7 +47,7 @@ Chessboard::Chessboard (Point xy)
   {
     cells.push_back (new Cell{ Point{margin + j*Cell::size,
                                      margin + (N-1 - i)*Cell::size},
-                               cb_clicked, type_of_cell(i,j) });
+                               cb_clicked, type_of_cell(i,j), (i+1), j });
     attach (cells[ cells.size()-1 ]);
   }
 
@@ -85,9 +85,12 @@ void Chessboard::clicked (Cell& c)
     if (selected -> has_figure())
     {
       //move figure
-      Cell& c1 = *selected;
-      c.attach_figure(c1.detach_figure());
-
+      if (selected->get_figure().get_type() == pawn) {
+          if ((c.number - selected->number == 1 || selected->number == 2) && c.symbol == selected->symbol) {
+              Cell &c1 = *selected;
+              c.attach_figure(c1.detach_figure());
+          }
+      }
     }
     selected->deactivate();
       selected = nullptr;
