@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "constants.h"
 #include "board.h"
 
@@ -82,20 +83,54 @@ void Chessboard::clicked(Cell &c) {
 }
 
 void Chessboard::move_figure(Cell &c) {
-    if (selected->get_figure().is_white()) {
-        if (selected->get_figure().get_type() == pawn) {
+    if (selected->get_figure().get_type() == pawn){
+        if (selected->get_figure().is_white()) {
             if ((c.number - selected->number == 1 || (selected->number == 2 && c.number - selected->number == 2) ) && c.symbol == selected->symbol) {
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
             }
         }
-    }
-    else{
-        if (selected->get_figure().get_type() == pawn) {
+        else{
             if ((c.number - selected->number == -1 ||(selected->number == 7 && c.number - selected->number == -2)) && c.symbol == selected->symbol) {
-                Cell &c1 = *selected;
-                c.attach_figure(c1.detach_figure());
+                    Cell &c1 = *selected;
+                    c.attach_figure(c1.detach_figure());
             }
         }
     }
+
+    if (selected -> get_figure().get_type() == rook){
+        if ((c.number == selected -> number || c.symbol == selected -> symbol)){
+            Cell &c1 = *selected;
+            c.attach_figure(c1.detach_figure());
+        }
+    }
+    
+    if (selected -> get_figure().get_type() == knight){
+        if ((abs(c.symbol - selected -> symbol) == 1 && abs(c.number - selected -> number) == 2) || (abs(c.symbol - selected -> symbol) == 2 && abs(c.number - selected -> number) == 1)){
+            Cell &c1 = *selected;
+            c.attach_figure(c1.detach_figure());
+        }
+    }
+    
+    if (selected -> get_figure().get_type() == bishop){
+        if ((abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
+            Cell &c1 = *selected;
+            c.attach_figure(c1.detach_figure());
+        }
+    }
+
+    if (selected -> get_figure().get_type() == queen){
+        if ((c.number == selected -> number) || (c.symbol == selected -> symbol) || (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
+            Cell &c1 = *selected;
+            c.attach_figure(c1.detach_figure());
+        }
+    }
+
+    if (selected -> get_figure().get_type() == king){
+        if ((abs(c.symbol - selected -> symbol) == 1 && abs(c.number - selected -> number) <= 1) || ((c.symbol == selected -> symbol) && abs(c.number - selected -> number) = 1)){
+            Cell &c1 = *selected;
+            c.attach_figure(c1.detach_figure());
+        }
+    }
+
 }

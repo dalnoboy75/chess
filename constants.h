@@ -3,6 +3,21 @@
 #include <Graph_lib/Point.h>
 using namespace Graph_lib;
 constexpr char pawn = 'p';
+constexpr char rook = 'r';
+constexpr char knight = 'k';
+constexpr char bishop = 'b';
+constexpr char queen = 'q';
+constexpr char king = 'kn';
 constexpr Point white_pawn{550,15};
 constexpr Point black_pawn{550,122};
+constexpr Point white_rook{443,15};
+constexpr Point black_rook{443,122};
+constexpr Point white_knight{336,15};
+constexpr Point black_knight{336,122};
+constexpr Point white_bishop{};
+constexpr Point black_bishop{};
+constexpr Point white_queen{};
+constexpr Point black_queen{};
+constexpr Point white_king{};
+constexpr Point black_king{};
 #endif //CHESS_CONSTANTS_H

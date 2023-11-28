@@ -32,4 +32,39 @@ private:
     bool color; // true - белый, false - черный
 };
 
+struct Rook : Figure{ //это ладья (Иван не понимает, потому что он дурачек и не знает тоже английского)
+    Rook (Graph_lib::Window& win, const string& s, Point p, bool color): Figure(win,s,p, rook), color{color}{};
+    bool is_white() override{return color;}
+private:
+    bool color; // true - белый, false - черный
+};
+
+struct Knight : Figure{ 
+    Knight (Graph_lib::Window& win, const string& s, Point p, bool color): Figure(win,s,p, knight), color{color}{};
+    bool is_white() override{return color;}
+private:
+    bool color; // true - белый, false - черный
+};
+
+struct Bishop : Figure{ 
+    Bishop (Graph_lib::Window& win, const string& s, Point p, bool color): Figure(win,s,p, bishop), color{color}{};
+    bool is_white() override{return color;}
+private:
+    bool color; // true - белый, false - черный
+};
+
+struct Queen : Figure{ 
+    Queen (Graph_lib::Window& win, const string& s, Point p, bool color): Figure(win,s,p, queen), color{color}{};
+    bool is_white() override{return color;}
+private:
+    bool color; // true - белый, false - черный
+};
+
+struct King : Figure{ 
+    King (Graph_lib::Window& win, const string& s, Point p, bool color): Figure(win,s,p, king), color{color}{};
+    bool is_white() override{return color;}
+private:
+    bool color; // true - белый, false - черный
+};
+
 #endif //CHESS_FIGURES_H
