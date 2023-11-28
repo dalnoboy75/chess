@@ -2,7 +2,6 @@
 #include <iostream>
 
 #include "board.h"
-#include "cell.h"
 #include "figures.h"
 using namespace Graph_lib;
 
@@ -10,8 +9,13 @@ using namespace Graph_lib;
 int ex_chessboard ()
 {
   Chessboard board{Point{100, 100}};
-  Pawn p(board,"pieces.png",white_pawn,true);
-  board.at('b',2).attach_figure(p);
+  for(int i = 0; i < 8; i++){
+      Pawn* pw = new Pawn(board,"pieces.png",white_pawn,true);
+      char m = 'a'+i;
+      board.at(m,2).attach_figure(*pw);
+      Pawn* pb = new Pawn(board, "pieces.png", black_pawn,false);
+      board.at(m, 7).attach_figure(*pb);
+  }
   board.wait_for_button();
   return 0;
   // return gui_main();
@@ -25,7 +29,7 @@ try
 }
 catch (std::exception& e)
 {
-  std::cerr << e.what() << std::endl;
+  std::cout << e.what() << std::endl;
   return 1;
 }
 catch (...)
