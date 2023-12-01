@@ -17,6 +17,9 @@ struct Figure:Graph_lib::Image{
     void detach(){
         cell = nullptr;
     }
+    void invisible(){
+        move(10000,10000);
+    }
     char get_type(){return type;}
 private:
     const Cell* cell{nullptr};

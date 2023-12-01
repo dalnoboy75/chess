@@ -14,6 +14,8 @@ struct Cell : Graph_lib::Button
     black,
     white
   };
+  int number;
+  int symbol;
 
   Cell(Point xy, Graph_lib::Callback cb, Type t, int number, int symbol);
 
@@ -33,7 +35,7 @@ struct Cell : Graph_lib::Button
   {
     return Point{loc.x + width / 2, loc.y + height / 2};
   }
-
+  void eat_figure();
   void attach_figure (Figure& f);
 
   Figure& detach_figure ();
@@ -45,8 +47,6 @@ struct Cell : Graph_lib::Button
   Figure& get_figure();
 
   static constexpr int size = 90;
-    int number;
-    int symbol;
 private:
   Type type;
 

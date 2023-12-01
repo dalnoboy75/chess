@@ -66,9 +66,39 @@ void Chessboard::clicked(Cell &c) {
         selected = &c;
         c.activate();
     } else if (c.has_figure() && selected) {
-        selected->deactivate();
-        selected = &c;
-        c.activate();
+        if (!selected->has_figure() || selected->get_figure().is_white() == c.get_figure().is_white() || c.get_figure().get_type() == king){
+            selected->deactivate();
+            selected = &c;
+            c.activate();
+        }
+        else{
+            if (selected -> get_figure().get_type() == pawn){
+                if (selected->get_figure().is_white()){
+                    if (c.has_figure() && ((c.number - selected -> number == 1) && abs(c.symbol - selected -> symbol) == 1)){
+                        Cell &c1 = *selected;
+                        c.eat_figure();
+                        c.attach_figure(c1.detach_figure());
+                    }
+                }
+                else{
+                    if (c.has_figure() && (c.number - selected -> number == -1 && abs(c.symbol - selected -> symbol) == 1)){
+                        Cell &c1 = *selected;
+                        c.eat_figure();
+                        c.attach_figure(c1.detach_figure());
+                    }
+                }
+                selected->deactivate();
+                selected = nullptr;
+                c.deactivate();
+
+            }   
+            else{
+                this->move_figure(c);
+                selected->deactivate();
+                selected = nullptr;
+                c.deactivate();
+            }
+        }
     } else {
         if (selected->has_figure()) {
             //move figure
@@ -98,37 +128,42 @@ void Chessboard::move_figure(Cell &c) {
         }
     }
 
-    if (selected -> get_figure().get_type() == rook){
+    else if (selected -> get_figure().get_type() == rook){
         if ((c.number == selected -> number || c.symbol == selected -> symbol)){
             Cell &c1 = *selected;
+            c.eat_figure();
             c.attach_figure(c1.detach_figure());
         }
     }
     
-    if (selected -> get_figure().get_type() == knight){
+    else if (selected -> get_figure().get_type() == knight){
         if ((abs(c.symbol - selected -> symbol) == 1 && abs(c.number - selected -> number) == 2) || (abs(c.symbol - selected -> symbol) == 2 && abs(c.number - selected -> number) == 1)){
             Cell &c1 = *selected;
+            c.eat_figure();
             c.attach_figure(c1.detach_figure());
         }
     }
     
-    if (selected -> get_figure().get_type() == bishop){
+    else if (selected -> get_figure().get_type() == bishop){
         if ((abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
             Cell &c1 = *selected;
+            c.eat_figure();
             c.attach_figure(c1.detach_figure());
         }
     }
 
-    if (selected -> get_figure().get_type() == queen){
+    else if (selected -> get_figure().get_type() == queen){
         if ((c.number == selected -> number) || (c.symbol == selected -> symbol) || (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
             Cell &c1 = *selected;
+            c.eat_figure();
             c.attach_figure(c1.detach_figure());
         }
     }
 
-    if (selected -> get_figure().get_type() == king){
-        if ((abs(c.symbol - selected -> symbol) == 1 && abs(c.number - selected -> number) <= 1) || ((c.symbol == selected -> symbol) && abs(c.number - selected -> number) = 1)){
+    else if (selected -> get_figure().get_type() == king){
+        if ((abs(c.symbol - selected -> symbol) == 1 && abs(c.number - selected -> number) <= 1) || ((c.symbol == selected -> symbol) && abs(c.number - selected -> number) == 1)){
             Cell &c1 = *selected;
+            c.eat_figure();
             c.attach_figure(c1.detach_figure());
         }
     }

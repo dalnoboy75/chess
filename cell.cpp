@@ -39,4 +39,11 @@ Figure& Cell::detach_figure()
   return *f;
 }
 
+void Cell::eat_figure(){
+  if (figure){
+    figure->invisible();
+    figure = nullptr;
+  }
+}
+
 Figure& Cell::get_figure() { return *figure; }

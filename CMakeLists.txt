@@ -33,8 +33,6 @@ add_executable(
         board.cpp
         cell.h
         cell.cpp
-        checker.h
-        checker.cpp
         ${LIB_DIR}/Graph_lib/fltk.h
         ${LIB_DIR}/Graph_lib/Graph.h
         ${LIB_DIR}/Graph_lib/GUI.h
