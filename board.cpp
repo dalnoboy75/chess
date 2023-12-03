@@ -118,18 +118,23 @@ void Chessboard::move_figure(Cell &c) {
     if (selected->get_figure().get_type() == pawn){
         if (selected->get_figure().is_white()) {
             if ((c.number - selected->number == 1 || (selected->number == 2 && c.number - selected->number == 2) ) && c.symbol == selected->symbol) {
+                if (selected->number == 2 && c.number - selected->number == 2 && (this -> check_move(3, c.symbol) == true)){
+                    return;
+                }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
+                }
             }
-        }
         else{
             if ((c.number - selected->number == -1 ||(selected->number == 7 && c.number - selected->number == -2)) && c.symbol == selected->symbol) {
-                    Cell &c1 = *selected;
-                    c.attach_figure(c1.detach_figure());
+                if (selected->number == 2 && c.number - selected->number == 2 && !(this -> check_move(6, c.symbol))){
+                    return;
+                }
+                Cell &c1 = *selected;
+                c.attach_figure(c1.detach_figure());
+                }
             }
         }
-    }
-
     else if (selected -> get_figure().get_type() == rook){
         int k = 0;
         if (c.number == selected -> number){
@@ -166,19 +171,60 @@ void Chessboard::move_figure(Cell &c) {
     }
     
     else if (selected -> get_figure().get_type() == bishop){
-        if ((abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
-            Cell &c1 = *selected;
-            c.eat_figure();
-            c.attach_figure(c1.detach_figure());
+        int k = 0;
+        if (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number)){
+            int j = std::min(selected -> number, c.number) + 1;
+            for (int i = std::min((selected -> symbol), c.symbol) + 1; i < std::max(c.symbol, selected -> symbol); ++i){
+                if (this->check_move(j,i)){ k += 1;}
+                ++j;
+            }
+            if (k == 0 && (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
+                Cell &c1 = *selected;
+                c.eat_figure();
+                c.attach_figure(c1.detach_figure());
+
+            }
         }
     }
 
     else if (selected -> get_figure().get_type() == queen){
-        if ((c.number == selected -> number) || (c.symbol == selected -> symbol) || (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
-            Cell &c1 = *selected;
-            c.eat_figure();
-            c.attach_figure(c1.detach_figure());
+        int k = 0;
+        if (c.number == selected -> number){
+            for (int i = std::min((selected -> symbol), c.symbol) + 1; i < std::max(c.symbol, selected -> symbol); ++i){
+                if (this->check_move(c.number,i)){ k += 1;}
+            }
+            if (k == 0 && (c.number == selected -> number || c.symbol == selected -> symbol)){
+                Cell &c1 = *selected;
+                c.eat_figure();
+                c.attach_figure(c1.detach_figure());
+            }
         }
+        
+        else if (c.symbol == selected -> symbol){
+            for (int i = std::min(c.number, selected -> number) + 1 ; i < std::max(c.number, selected -> number); ++i){
+                if (this -> check_move(i,c.symbol)){k += 1;}
+            }
+            if (k == 0 && (c.number == selected -> number || c.symbol == selected -> symbol)){
+                Cell &c1 = *selected;
+                c.eat_figure();
+                c.attach_figure(c1.detach_figure());
+            }
+
+        }
+        else if (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number)){
+            int j = std::min(selected -> number, c.number) + 1;
+            for (int i = std::min((selected -> symbol), c.symbol) + 1; i < std::max(c.symbol, selected -> symbol); ++i){
+                if (this->check_move(j,i)){ k += 1;}
+                ++j;
+            }
+            if (k == 0 && (abs(c.symbol - selected -> symbol) == abs(c.number - selected -> number))){
+                Cell &c1 = *selected;
+                c.eat_figure();
+                c.attach_figure(c1.detach_figure());
+
+            }
+        }
+            
     }
 
     else if (selected -> get_figure().get_type() == king){
