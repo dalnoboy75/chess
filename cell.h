@@ -19,6 +19,7 @@ struct Cell : Graph_lib::Button
 
   Cell(Point xy, Graph_lib::Callback cb, Type t, int number, int symbol);
 
+
   void attach (Graph_lib::Window& win) override;
 
   void activate ()
@@ -26,6 +27,7 @@ struct Cell : Graph_lib::Button
     if (pw)
       pw->color(FL_SELECTION_COLOR);
   }
+
 
   void deactivate () { reset_color(); }
 

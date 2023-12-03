@@ -61,6 +61,8 @@ Chessboard::Chessboard(Point xy)
 }
 
 
+
+
 void Chessboard::clicked(Cell &c) {
     if (!selected) {
         selected = &c;
@@ -129,11 +131,30 @@ void Chessboard::move_figure(Cell &c) {
     }
 
     else if (selected -> get_figure().get_type() == rook){
-        if ((c.number == selected -> number || c.symbol == selected -> symbol)){
-            Cell &c1 = *selected;
-            c.eat_figure();
-            c.attach_figure(c1.detach_figure());
+        int k = 0;
+        if (c.number == selected -> number){
+            for (int i = std::min((selected -> symbol), c.symbol) + 1; i < std::max(c.symbol, selected -> symbol); ++i){
+                if (this->check_move(c.number,i)){ k += 1;}
+            }
+            if (k == 0 && (c.number == selected -> number || c.symbol == selected -> symbol)){
+                Cell &c1 = *selected;
+                c.eat_figure();
+                c.attach_figure(c1.detach_figure());
+            }
         }
+        
+        else if (c.symbol == selected -> symbol){
+            for (int i = std::min(c.number, selected -> number) + 1 ; i < std::max(c.number, selected -> number); ++i){
+                if (this -> check_move(i,c.symbol)){k += 1;}
+            }
+            if (k == 0 && (c.number == selected -> number || c.symbol == selected -> symbol)){
+                Cell &c1 = *selected;
+                c.eat_figure();
+                c.attach_figure(c1.detach_figure());
+            }
+
+        }
+            
     }
     
     else if (selected -> get_figure().get_type() == knight){
@@ -168,4 +189,9 @@ void Chessboard::move_figure(Cell &c) {
         }
     }
 
+}
+
+bool Chessboard::check_move(int number, int symbol){
+    char f = 'a' + symbol;
+    return this -> at(f, number).has_figure();   
 }
