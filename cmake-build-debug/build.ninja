@@ -70,13 +70,6 @@ build CMakeFiles/chess.dir/cell.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:
   OBJECT_DIR = CMakeFiles\chess.dir
   OBJECT_FILE_DIR = CMakeFiles\chess.dir
 
-build CMakeFiles/chess.dir/checker.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/checker.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\checker.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir
-
 build CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/lib/Graph_lib/Graph.cpp || cmake_object_order_depends_target_chess
   DEP_FILE = CMakeFiles\chess.dir\lib\Graph_lib\Graph.cpp.obj.d
   FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
@@ -113,7 +106,7 @@ build CMakeFiles/chess.dir/figures.cpp.obj: CXX_COMPILER__chess_unscanned_Debug 
 #############################################
 # Link the executable chess.exe
 
-build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles/chess.dir/main.cpp.obj CMakeFiles/chess.dir/board.cpp.obj CMakeFiles/chess.dir/cell.cpp.obj CMakeFiles/chess.dir/checker.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.obj CMakeFiles/chess.dir/figures.cpp.obj | C$:/Program$ Files/FLTK/lib/libfltk_images.a C$:/Program$ Files/FLTK/lib/libfltk_forms.a C$:/Program$ Files/FLTK/lib/libfltk_gl.a C$:/Program$ Files/FLTK/lib/libfltk.a C$:/Program$ Files/FLTK/lib/libfltk.a
+build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles/chess.dir/main.cpp.obj CMakeFiles/chess.dir/board.cpp.obj CMakeFiles/chess.dir/cell.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.obj CMakeFiles/chess.dir/figures.cpp.obj | C$:/Program$ Files/FLTK/lib/libfltk_images.a C$:/Program$ Files/FLTK/lib/libfltk_forms.a C$:/Program$ Files/FLTK/lib/libfltk_gl.a C$:/Program$ Files/FLTK/lib/libfltk.a C$:/Program$ Files/FLTK/lib/libfltk.a
   FLAGS = -pedantic -Wall -Wextra -g
   LINK_LIBRARIES = "C:/Program Files/FLTK/lib/libfltk_images.a"  "C:/Program Files/FLTK/lib/libfltk_forms.a"  "C:/Program Files/FLTK/lib/libfltk_gl.a"  -lopengl32  "C:/Program Files/FLTK/lib/libfltk.a"  -lwsock32  -lcomctl32  -lopengl32  -lglu32  -lfltk_jpeg  -lfltk_png  -lfltk_z  "C:/Program Files/FLTK/lib/libfltk.a"  -lwsock32  -lcomctl32  -lglu32  -lfltk_jpeg  -lfltk_png  -lfltk_z  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/PROGRA~1/FLTK/include/../lib

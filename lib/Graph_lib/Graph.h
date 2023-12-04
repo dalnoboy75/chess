@@ -171,7 +171,6 @@ public:
   // ???void erase(???)
 
   T& operator[] (int i) { return *v.at(i); }
-
   const T& operator[] (int i) const { return *v.at(i); }
 
   int size () const { return v.size(); }

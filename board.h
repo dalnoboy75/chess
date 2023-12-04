@@ -40,14 +40,14 @@ struct Chessboard : My_window {
         return cells[i * N + j];
     }
 
-    
+
     bool check_move(int number, int symbol);
 
 private:
     static constexpr int margin = 30;
     static constexpr int width = N * Cell::size + 2 * margin + 70;
     static constexpr int height = N * Cell::size + 2 * margin;
-
+    vector<Graph_lib::Circle*> green_circles;
     Graph_lib::Vector_ref<Cell> cells;
     Graph_lib::Marks x_labels;
     Graph_lib::Marks y_labels;
@@ -58,6 +58,10 @@ private:
         auto &btn = Graph_lib::reference_to<Cell>(widget);
         dynamic_cast<Chessboard &>(btn.window()).clicked(btn);
     }
+
+    void virtual_move();
+
+    void delete_moves();
 
     void clicked(Cell &c);
 

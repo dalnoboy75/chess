@@ -19,7 +19,6 @@ struct Cell : Graph_lib::Button
 
   Cell(Point xy, Graph_lib::Callback cb, Type t, int number, int symbol);
 
-
   void attach (Graph_lib::Window& win) override;
 
   void activate ()
