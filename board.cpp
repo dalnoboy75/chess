@@ -72,7 +72,6 @@ void Chessboard::clicked(Cell &c) {
         if (!selected->has_figure() || selected->get_figure().is_white() == c.get_figure().is_white() ||
             c.get_figure().get_type() == king) {
             selected->deactivate();
-            cout << "11 ";
             this->delete_moves();
             selected = &c;
             c.activate();
@@ -96,7 +95,6 @@ void Chessboard::clicked(Cell &c) {
                     }
                 }
                 selected->deactivate();
-                cout << "22 ";
                 this->delete_moves();
                 selected = nullptr;
                 c.deactivate();
@@ -105,7 +103,6 @@ void Chessboard::clicked(Cell &c) {
                 this->virtual_move();
                 this->move_figure(c);
                 selected->deactivate();
-                cout << "33 ";
                 this->delete_moves();
                 selected = nullptr;
                 c.deactivate();
@@ -117,7 +114,6 @@ void Chessboard::clicked(Cell &c) {
             this->move_figure(c);
         }
         selected->deactivate();
-        cout << "44 ";
         this->delete_moves();
         selected = nullptr;
         c.deactivate();
@@ -278,7 +274,6 @@ void Chessboard::virtual_move() {
             }
         }
     }
-    cout << this->green_circles.size() << " ";
 }
 
 void Chessboard::delete_moves() {
@@ -290,6 +285,5 @@ void Chessboard::delete_moves() {
             }
         }
         this->green_circles.clear();
-        cout << this->green_circles.size() << " ";
     }
 }
