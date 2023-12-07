@@ -66,6 +66,12 @@ private:
     void clicked(Cell &c);
 
     void move_figure(Cell &c);
+
+    void virtual_move_rook();
+
+    void virtual_move_bishop();
+
+    void virtual_move_king();
 };
 
 #endif  // #ifndef BOARD_H

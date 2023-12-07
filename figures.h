@@ -92,11 +92,3 @@ private:
 
 #endif //CHESS_FIGURES_H
 
-
-
-/*
-    A* ptr = static_cast<A*>(new char[sizeof(A) * 3]);
-    A* elems = new(ptr A[3]);
-    delete[] static_cast<char*>(ptr);
-    
-*/
