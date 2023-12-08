@@ -72,6 +72,8 @@ private:
     void virtual_move_bishop();
 
     void virtual_move_king();
+
+    void virtual_move_knight();
 };
 
 #endif  // #ifndef BOARD_H

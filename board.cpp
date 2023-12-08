@@ -175,14 +175,49 @@ void Chessboard::move_figure(Cell &c) {
             c.attach_figure(c1.detach_figure());
         }
     } else if (selected->get_figure().get_type() == bishop) {
-        int k = 0;
-        if (abs('a' + c.symbol - ('a' + selected->symbol)) == abs(c.number - selected->number)) {
-            int j = std::min(selected->number, c.number) + 1;
-            for (int i = std::min((selected->symbol), c.symbol) + 1; i < std::max(c.symbol, selected->symbol); ++i) {
-                if (this->check_move(j, i)) { k += 1; }
-                ++j;
+        if (abs(c.symbol - selected->symbol) == abs(c.number - selected->number)) {
+            bool possible_step = true;
+            if (c.symbol > selected->symbol && c.number > selected->number) {
+                int sym = selected->symbol +1;
+                for (int num = selected->number +1; num < c.number; ++num) {
+                    if (this->check_move(num, sym)) {
+                        possible_step = false;
+                        break;
+                    }
+                    sym++;
+                }
             }
-            if (k == 0 && (abs(c.symbol - selected->symbol) == abs(c.number - selected->number))) {
+            else if (c.symbol > selected->symbol && c.number < selected->number) {
+                int sym = selected->symbol + 1;
+                for (int num = selected->number - 1; num > c.number; --num) {
+                    if (this->check_move(num, sym)) {
+                        possible_step = false;
+                        break;
+                    }
+                    sym++;
+                }
+            }
+            else if (c.symbol < selected->symbol && c.number < selected->number) {
+                int sym = selected->symbol -1;
+                for (int num = selected->number -1; num > c.number; --num) {
+                    if (this->check_move(num, sym)) {
+                        possible_step = false;
+                        break;
+                    }
+                    sym--;
+                }
+            }
+            else if (c.symbol < selected->symbol && c.number > selected->number) {
+                int sym = selected->symbol -1;
+                for (int num = selected->number +1; num < c.number; ++num) {
+                    if (this->check_move(num, sym)) {
+                        possible_step = false;
+                        break;
+                    }
+                    sym--;
+                }
+            }
+            if (possible_step) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
@@ -237,6 +272,7 @@ void Chessboard::move_figure(Cell &c) {
 
 bool Chessboard::check_move(int number, int symbol) {
     char f ='a' + symbol;
+
     return this->at(f, number).has_figure();
 }
 
@@ -431,60 +467,134 @@ void Chessboard::virtual_move_rook(){
 }
 
 void Chessboard::virtual_move_king(){
-    
+    if (selected->get_figure().get_type() == king) {
+        for (int i = -1; i < 2; ++i) {
+            for (int j = -1; j < 2; ++j) {
+                if ((j == 0 && i == 0) || i + selected->symbol > 7 || j + selected->number > 8 || i + selected->symbol < 0 || j + selected->number < 1) { continue;}
+                Cell *c = &this->at('a' + i + selected->symbol, j + selected->number);
+                if (!c->has_figure()) {
+                    Circle *vm = new Circle({c->center().x, c->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
+                }
+            }
+        }
+    }
+}
+void Chessboard::virtual_move_knight() {
+    if (selected->get_figure().get_type() == knight) {
+        vector<vector<int>> possible_steps = {{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {-1, 2}, {1, -2}, {-1, -2}};
+        for (int k = 0; k < 8; k++) {
+            int j = possible_steps[k][0];
+            int i = possible_steps[k][1];
+            if ((j == 0 && i == 0) || i + selected->symbol > 7 || j + selected->number > 8 || i + selected->symbol < 0 || j + selected->number < 1) { continue;}
+                Cell *c = &this->at('a' + i + selected->symbol, j + selected->number);
+                if (!c->has_figure()) {
+                    Circle *vm = new Circle({c->center().x, c->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
+                }
+            }
+        }
 }
 
 void Chessboard::virtual_move() {
     if (selected->get_figure().get_type() == pawn) {
         if (selected->get_figure().is_white()) {
-            Cell *c = &this->at('a' + selected->symbol, selected->number + 1);
-            if (!c->has_figure()) {
-                Circle *vm = new Circle({c->center().x, c->center().y}, 20);
-                vm->set_fill_color(FL_DARK_GREEN);
-                this->green_circles.push_back(vm);
-                this->attach(*vm);
-                Cell *cs = &this->at('a' + selected->symbol, selected->number + 2);
-                if (selected->number == 2 && !cs->has_figure()) {
-                    Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
-                    vm2->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm2);
-                    this->attach(*vm2);
+            if (selected->number + 1 <= 8) {
+                Cell *c = &this->at('a' + selected->symbol, selected->number + 1);
+                if (!c->has_figure()) {
+                    Circle *vm = new Circle({c->center().x, c->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
+                    Cell *cs = &this->at('a' + selected->symbol, selected->number + 2);
+                    if (selected->number == 2 && !cs->has_figure()) {
+                        Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
+                        vm2->set_fill_color(FL_DARK_GREEN);
+                        this->green_circles.push_back(vm2);
+                        this->attach(*vm2);
+                    }
+                }
+            }
+
+            if (selected->number + 1 <= 8 and selected->symbol + 1 <= 7) {
+                Cell *c1 = &this->at('a' + selected->symbol + 1, selected->number + 1);
+                if (c1->has_figure() and !c1->get_figure().is_white()) {
+                    Circle *vm = new Circle({c1->center().x, c1->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
+                }
+            }
+            if (selected->number + 1 <= 8 and selected->symbol - 1 >= 0) {
+                Cell *c2 = &this->at('a' + selected->symbol - 1, selected->number + 1);
+                if (c2->has_figure() and !c2->get_figure().is_white()) {
+                    Circle *vm = new Circle({c2->center().x, c2->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
                 }
             }
         } else {
-            Cell *c = &this->at('a' + selected->symbol, selected->number - 1);
-            if (!c->has_figure()) {
-                Circle *vm = new Circle({c->center().x, c->center().y}, 20);
-                vm->set_fill_color(FL_DARK_GREEN);
-                this->green_circles.push_back(vm);
-                this->attach(*vm);
-                Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
-                if (selected->number == 7 && !cs->has_figure()) {
-                    Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
-                    vm2->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm2);
-                    this->attach(*vm2);
+            if (selected->number - 1 >= 1) {
+                Cell *c = &this->at('a' + selected->symbol, selected->number - 1);
+                if (!c->has_figure()) {
+                    Circle *vm = new Circle({c->center().x, c->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
+                    Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
+                    if (selected->number == 7 && !cs->has_figure()) {
+                        Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
+                        vm2->set_fill_color(FL_DARK_GREEN);
+                        this->green_circles.push_back(vm2);
+                        this->attach(*vm2);
+                    }
+                }
+            }
+            if (selected->number - 1 >= 1 and selected->symbol + 1 <= 7) {
+                Cell *c1 = &this->at('a' + selected->symbol + 1, selected->number - 1);
+                if (c1->has_figure() and c1->get_figure().is_white()) {
+                    Circle *vm = new Circle({c1->center().x, c1->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
+                }
+            }
+            if (selected->number - 1 >= 1 and selected->symbol - 1 >= 0) {
+                Cell *c2 = &this->at('a' + selected->symbol - 1, selected->number - 1);
+                if (c2->has_figure() and c2->get_figure().is_white()) {
+                    Circle *vm = new Circle({c2->center().x, c2->center().y}, 20);
+                    vm->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm);
+                    this->attach(*vm);
                 }
             }
         }
-    }
-    if (selected -> get_figure().get_type() == rook){
-        virtual_move_rook();
-    }
+        if (selected->get_figure().get_type() == rook) {
+            virtual_move_rook();
+        }
 
-    if (selected -> get_figure().get_type() == bishop){
-        virtual_move_bishop();
-    }
+        if (selected->get_figure().get_type() == bishop) {
+            virtual_move_bishop();
+        }
 
-    if (selected -> get_figure().get_type() == queen){
-        virtual_move_rook();
-        virtual_move_bishop();
-    }
+        if (selected->get_figure().get_type() == queen) {
+            virtual_move_rook();
+            virtual_move_bishop();
+        }
 
-    if (selected -> get_figure().get_type() == king){
-        virtual_move_king();
-    }
+        if (selected->get_figure().get_type() == king) {
+            virtual_move_king();
+        }
 
+        if (selected->get_figure().get_type() == knight) {
+            virtual_move_knight();
+        }
+    }
 }
 
 void Chessboard::delete_moves() {
