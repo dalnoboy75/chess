@@ -472,7 +472,7 @@ void Chessboard::virtual_move_king(){
             for (int j = -1; j < 2; ++j) {
                 if ((j == 0 && i == 0) || i + selected->symbol > 7 || j + selected->number > 8 || i + selected->symbol < 0 || j + selected->number < 1) { continue;}
                 Cell *c = &this->at('a' + i + selected->symbol, j + selected->number);
-                if (!c->has_figure()) {
+                if (!c->has_figure() or (c->get_figure().is_white() != selected->get_figure().is_white() and c->get_figure().get_type() != king)) {
                     Circle *vm = new Circle({c->center().x, c->center().y}, 20);
                     vm->set_fill_color(FL_DARK_GREEN);
                     this->green_circles.push_back(vm);
@@ -490,7 +490,7 @@ void Chessboard::virtual_move_knight() {
             int i = possible_steps[k][1];
             if ((j == 0 && i == 0) || i + selected->symbol > 7 || j + selected->number > 8 || i + selected->symbol < 0 || j + selected->number < 1) { continue;}
                 Cell *c = &this->at('a' + i + selected->symbol, j + selected->number);
-                if (!c->has_figure()) {
+                if (!c->has_figure() or (c->get_figure().is_white() != selected->get_figure().is_white() and c->get_figure().get_type() != king)) {
                     Circle *vm = new Circle({c->center().x, c->center().y}, 20);
                     vm->set_fill_color(FL_DARK_GREEN);
                     this->green_circles.push_back(vm);
@@ -574,6 +574,7 @@ void Chessboard::virtual_move() {
                 }
             }
         }
+    }
         if (selected->get_figure().get_type() == rook) {
             virtual_move_rook();
         }
@@ -594,7 +595,6 @@ void Chessboard::virtual_move() {
         if (selected->get_figure().get_type() == knight) {
             virtual_move_knight();
         }
-    }
 }
 
 void Chessboard::delete_moves() {
