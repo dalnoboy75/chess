@@ -44,6 +44,7 @@ struct Chessboard : My_window {
     bool check_move(int number, int symbol);
 
 private:
+    bool which_move = true;
     static constexpr int margin = 30;
     static constexpr int width = N * Cell::size + 2 * margin + 70;
     static constexpr int height = N * Cell::size + 2 * margin;

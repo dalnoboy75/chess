@@ -65,10 +65,10 @@ void Chessboard::clicked(Cell &c) {
     if (!selected) {
         selected = &c;
         c.activate();
-        if (selected->has_figure()) {
+        if (selected->has_figure() && this -> which_move == selected -> get_figure().is_white()) {
             this->virtual_move();
         }
-    } else if (c.has_figure() && selected) {
+    } else if (c.has_figure() && selected && this -> which_move == selected -> get_figure().is_white()) {
         if (!selected->has_figure() || selected->get_figure().is_white() == c.get_figure().is_white() ||
             c.get_figure().get_type() == king) {
             selected->deactivate();
@@ -85,6 +85,7 @@ void Chessboard::clicked(Cell &c) {
                         Cell &c1 = *selected;
                         c.eat_figure();
                         c.attach_figure(c1.detach_figure());
+                        this -> which_move = !this->which_move;
                     }
                 } else {
                     if (c.has_figure() &&
@@ -92,6 +93,7 @@ void Chessboard::clicked(Cell &c) {
                         Cell &c1 = *selected;
                         c.eat_figure();
                         c.attach_figure(c1.detach_figure());
+                        this -> which_move = !this->which_move;
                     }
                 }
                 selected->deactivate();
@@ -109,7 +111,7 @@ void Chessboard::clicked(Cell &c) {
             }
         }
     } else {
-        if (selected->has_figure()) {
+        if (selected->has_figure() && this -> which_move == selected -> get_figure().is_white()) {
             //move figure
             this->move_figure(c);
         }
@@ -129,19 +131,23 @@ void Chessboard::move_figure(Cell &c) {
                 c.symbol == selected->symbol) {
                 if (selected->number == 2 && c.number - selected->number == 2 &&
                     (this->check_move(3, c.symbol) == true)) {
+                    this -> which_move = !this->which_move;
                     return;
                 }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
             }
         } else {
             if ((c.number - selected->number == -1 || (selected->number == 7 && c.number - selected->number == -2)) &&
                 c.symbol == selected->symbol) {
                 if (selected->number == 7 && c.number - selected->number == -2 && (this->check_move(6, c.symbol) == true)) {
+                    this -> which_move = !this->which_move;
                     return;
                 }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
             }
         }
     } else if (selected->get_figure().get_type() == rook) {
@@ -154,6 +160,7 @@ void Chessboard::move_figure(Cell &c) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
             }
         } else if (c.symbol == selected->symbol) {
             for (int i = std::min(c.number, selected->number) + 1; i < std::max(c.number, selected->number); ++i) {
@@ -163,6 +170,7 @@ void Chessboard::move_figure(Cell &c) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
             }
 
         }
@@ -173,6 +181,7 @@ void Chessboard::move_figure(Cell &c) {
             Cell &c1 = *selected;
             c.eat_figure();
             c.attach_figure(c1.detach_figure());
+            this -> which_move = !this->which_move;
         }
     } else if (selected->get_figure().get_type() == bishop) {
         if (abs(c.symbol - selected->symbol) == abs(c.number - selected->number)) {
@@ -221,6 +230,7 @@ void Chessboard::move_figure(Cell &c) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
 
             }
         }
@@ -234,6 +244,7 @@ void Chessboard::move_figure(Cell &c) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
             }
         } else if (c.symbol == selected->symbol) {
             for (int i = std::min(c.number, selected->number) + 1; i < std::max(c.number, selected->number); ++i) {
@@ -243,6 +254,7 @@ void Chessboard::move_figure(Cell &c) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
             }
 
         } else if (abs(c.symbol - selected->symbol) == abs(c.number - selected->number)) {
@@ -255,6 +267,7 @@ void Chessboard::move_figure(Cell &c) {
                 Cell &c1 = *selected;
                 c.eat_figure();
                 c.attach_figure(c1.detach_figure());
+                this -> which_move = !this->which_move;
 
             }
         }
@@ -265,6 +278,7 @@ void Chessboard::move_figure(Cell &c) {
             Cell &c1 = *selected;
             c.eat_figure();
             c.attach_figure(c1.detach_figure());
+            this -> which_move = !this->which_move;
         }
     }
 
