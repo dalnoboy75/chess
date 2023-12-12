@@ -68,6 +68,9 @@ void Chessboard::clicked(Cell &c) {
         if (selected->has_figure() && this -> which_move == selected -> get_figure().is_white()) {
             this->virtual_move();
         }
+        else{
+            c.deactivate();
+        }
     } else if (c.has_figure() && selected && this -> which_move == selected -> get_figure().is_white()) {
         if (!selected->has_figure() || selected->get_figure().is_white() == c.get_figure().is_white() ||
             c.get_figure().get_type() == king) {
