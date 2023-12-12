@@ -3,12 +3,8 @@
 47	2996	7234208394433937	CMakeFiles/chess.dir/cell.cpp.obj	b6e9085a3e30ca48
 43	2972	7234208394344224	CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.obj	7e5ce51422a4eeea
 33	3246	7234208396806830	CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.obj	6cc43e1a99a53de5
-23	3478	7234208399423466	CMakeFiles/chess.dir/board.cpp.obj	f4ec2a34ee92be1d
+7	3295	7234220157298053	CMakeFiles/chess.dir/board.cpp.obj	f4ec2a34ee92be1d
 11	3313	7234208397798645	CMakeFiles/chess.dir/main.cpp.obj	842ffb1361e4635
 58	3844	7234208403092977	CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj	501a4407d86cb3af
-4965	5326	7234208417845555	chess.exe	3e5858c684c1c465
-2972	4965	7234208414331996	CMakeFiles/chess.dir/figures.cpp.obj	46ea266e3c0a9da1
-12	2344	7234217863839612	CMakeFiles/chess.dir/board.cpp.obj	f4ec2a34ee92be1d
-2345	2672	7234217867052771	chess.exe	3e5858c684c1c465
-7	3295	7234220157298053	CMakeFiles/chess.dir/board.cpp.obj	f4ec2a34ee92be1d
 3296	3833	7234220162599561	chess.exe	3e5858c684c1c465
+2972	4965	7234208414331996	CMakeFiles/chess.dir/figures.cpp.obj	46ea266e3c0a9da1
