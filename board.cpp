@@ -176,11 +176,11 @@ void Chessboard::move_figure(Cell &c) {
         }
     } else if (selected->get_figure().get_type() == bishop) {
         int k = 0;
-        if (abs('a' + c.symbol - ('a' + selected->symbol)) == abs(c.number - selected->number)) {
+        if (abs(c.symbol - selected->symbol) == abs(c.number - selected->number)) {
             int j = std::min(selected->number, c.number) + 1;
             for (int i = std::min((selected->symbol), c.symbol) + 1; i < std::max(c.symbol, selected->symbol); ++i) {
                 if (this->check_move(j, i)) { k += 1; }
-                ++j;
+                j++;
             }
             if (k == 0 && (abs(c.symbol - selected->symbol) == abs(c.number - selected->number))) {
                 Cell &c1 = *selected;
