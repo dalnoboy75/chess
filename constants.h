@@ -20,4 +20,6 @@ constexpr Point white_queen{119,12};
 constexpr Point black_queen{119,119};
 constexpr Point white_king{12,12};
 constexpr Point black_king{12,119};
+constexpr int chess_green = 115;
+constexpr int chess_white = 215;
 #endif //CHESS_CONSTANTS_H

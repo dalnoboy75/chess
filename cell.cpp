@@ -1,5 +1,6 @@
 #include "cell.h"
 #include "figures.h"
+#include "constants.h"
 using namespace Graph_lib;
 
 Cell::Cell(Point xy, Callback cb, Type t, int number, int symbol)
@@ -20,9 +21,9 @@ void Cell::reset_color()
     error("Cell is not attached to a window");
 
   if (is_black())
-    pw->color(FL_GRAY);
+    pw->color(chess_green);
   else
-    pw->color(Color::white);
+    pw->color(chess_white);
 }
 
 void Cell::attach_figure(Figure& f)
