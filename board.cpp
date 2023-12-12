@@ -71,7 +71,7 @@ void Chessboard::clicked(Cell &c) {
         else{
             c.deactivate();
         }
-    } else if (c.has_figure() && selected && this -> which_move == selected -> get_figure().is_white()) {
+    } else if (c.has_figure() && selected && (!selected -> has_figure() ||this -> which_move == selected -> get_figure().is_white())) {
         if (!selected->has_figure() || selected->get_figure().is_white() == c.get_figure().is_white() ||
             c.get_figure().get_type() == king) {
             selected->deactivate();
