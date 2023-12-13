@@ -7,53 +7,51 @@ using Graph_lib::Point;
 
 struct Figure;
 
-struct Cell : Graph_lib::Button
-{
-  enum Type
-  {
-    black,
-    white
-  };
-  int number;
-  int symbol;
+struct Cell : Graph_lib::Button {
+    enum Type {
+        black,
+        white
+    };
+    int number;
+    int symbol;
 
-  Cell(Point xy, Graph_lib::Callback cb, Type t, int number, int symbol);
+    Cell(Point xy, Graph_lib::Callback cb, Type t, int number, int symbol);
 
-  void attach (Graph_lib::Window& win) override;
+    void attach(Graph_lib::Window &win) override;
 
-  void activate ()
-  {
-    if (pw)
-      pw->color(FL_SELECTION_COLOR);
-  }
+    void activate() {
+        if (pw)
+            pw->color(FL_SELECTION_COLOR);
+    }
 
 
-  void deactivate () { reset_color(); }
+    void deactivate() { reset_color(); }
 
-  bool is_black () const { return type == black; }
+    bool is_black() const { return type == black; }
 
-  Point center () const
-  {
-    return Point{loc.x + width / 2, loc.y + height / 2};
-  }
-  void eat_figure();
-  void attach_figure (Figure& f);
+    Point center() const {
+        return Point{loc.x + width / 2, loc.y + height / 2};
+    }
 
-  Figure& detach_figure ();
+    void eat_figure();
 
-  bool has_figure() const{
-    return figure != nullptr;
-  }
+    void attach_figure(Figure &f);
 
-  Figure& get_figure();
+    Figure &detach_figure();
 
-  static constexpr int size = 90;
+    bool has_figure() const {
+        return figure != nullptr;
+    }
+
+    Figure &get_figure();
+
+    static constexpr int size = 90;
 private:
-  Type type;
+    Type type;
 
-  void reset_color ();
+    void reset_color();
 
-  Figure* figure{nullptr};
+    Figure *figure{nullptr};
 
 };
 
