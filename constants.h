@@ -4,6 +4,7 @@
 #include <Graph_lib/Point.h>
 
 using namespace Graph_lib;
+constexpr char mate = 'm';
 constexpr char pawn = 'p';
 constexpr char rook = 'r';
 constexpr char knight = 'k';
