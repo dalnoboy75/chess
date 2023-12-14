@@ -1,0 +1,17 @@
+Bpa7
+Bpb7
+Bpc7
+Bpd7
+Bpe7
+Bpf7
+Bpg7
+Bph7
+
+Wpa2
+Wpb2
+Wpc2
+Wpd2
+Wpe2
+Wpf2
+Wpg2
+Wph2

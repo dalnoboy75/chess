@@ -1,0 +1,7 @@
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/chess.dir
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/list_install_components.dir
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/install.dir
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/install/local.dir
+/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/CMakeFiles/install/strip.dir
