@@ -1,39 +1,16 @@
 #include "game_position.h"
 
 bool Position::is_correct_cell_id() const {
-    return file >= 'a' && file <= 'h', rank >= 1 && rank <= 8;
+    return file >= 'a' && file <= 'h' && rank >= 1 && rank <= 8;
 }
 
-
-string get_type_of_figure(char type, char color) {
-    if (type == 'p' && color == 'W')
-        return "white_pawn";
-    if (type == 'p' && color == 'B')
-        return "black_pawn";
-    if (type == 'r' && color == 'W')
-        return "white_rook";
-    if (type == 'r' && color == 'B')
-        return "black_rook";
-    if (type == 'b' && color == 'W')
-        return "white_bishop";
-    if (type == 'b' && color == 'B')
-        return "black_bishop";
-    if (type == 'k' && color == 'W')
-        return "white_knight";
-    if (type == 'k' && color == 'B')
-        return "black_knight";
-    if (type == 'Q' && color == 'W')
-        return "white_queen";
-    if (type == 'Q' && color == 'B')
-        return "black_queen";
-    if (type == 'K' && color == 'W')
-        return "white_king";
-    if (type == 'K' && color == 'B')
-        return "black_king";
-    throw runtime_error("");
+bool Position::is_correct_type() {
+    if (find(types_of_figure.begin(), types_of_figure.end(), type) != types_of_figure.end())
+        return true;
+    return false;
 }
 
-bool GamePosition::is_sell_vacant(Position &position) {
+bool GamePosition::is_cell_vacant(Position &position) {
     for (Position &i: game_position)
         if (i.file == position.file && i.rank == position.rank)
             return false;
@@ -41,9 +18,9 @@ bool GamePosition::is_sell_vacant(Position &position) {
     return true;
 }
 
-void GamePosition::reading_game_position(const string &file_path) {
-    char color;
-    char type;
+void GamePosition::reading(const string &file_path) {
+    string color;
+    string type;
     short int rank;
     char file;
     try {
@@ -53,24 +30,33 @@ void GamePosition::reading_game_position(const string &file_path) {
             if(not in)
                 break;
             in >> type >> file >> rank;
-            if (not in)
-                throw runtime_error("");
-            string type_of_figure = get_type_of_figure(type, color);
 
+            transform(color.begin(), color.end(), color.begin(), ::tolower);
+            transform(type.begin(), type.end(), type.begin(), ::tolower);
+            string type_of_figure = color.append("_").append(type);
+
+            if (not in)
+                throw runtime_error("Ошибка считывания");
             Position position = {file, rank, type_of_figure};
-            if (!is_sell_vacant(position) || !position.is_correct_cell_id())
-                throw runtime_error("");
+
+            if (!is_cell_vacant(position) || !position.is_correct_cell_id())
+                throw runtime_error("Некорректная позиция фигуры");
+            if (!position.is_correct_type())
+                throw runtime_error("Некорректный тип фигуры");
+
             game_position.push_back(position);
         }
+        if (not in.is_open())
+            throw runtime_error("Файл не найден");
         in.close();
     }
     catch (exception &e) {
-        cerr << "Something went wrong...";
+        cerr << e.what();
         game_position.clear();
     }
 }
 
-void GamePosition::visualise_game_position(Chessboard &board) {
+void GamePosition::visualise(Chessboard &board) {
     for (Position &position : game_position) {
         if (position.type == "white_pawn") {
             auto *pw = new Pawn(board, "pieces.png", white_pawn, true);

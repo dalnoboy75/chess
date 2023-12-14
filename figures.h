@@ -23,10 +23,6 @@ struct Figure : Graph_lib::Image {
         cell = nullptr;
     }
 
-    void invisible() {
-        move(10000, 10000);
-    }
-
     char get_type() { return type; }
 
 private:
@@ -90,22 +86,6 @@ private:
     bool color; // true - белый, false - черный
 };
 
-struct Virtual_move : Graph_lib::Circle {
-    Virtual_move(Graph_lib::Window &win) : Circle{Point{0, 0}, r} {
-        win.attach(*this);
-    }
-
-    void draw_lines() const override { Circle::draw_lines(); }
-
-
-    void attach(const Cell &c);
-
-    void detach() { cell = nullptr; }
-
-private:
-    static constexpr int r = 0.4 * Cell::size / 2;
-    const Cell *cell{nullptr};
-};
 
 #endif //CHESS_FIGURES_H
 

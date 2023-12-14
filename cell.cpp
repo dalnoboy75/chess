@@ -38,7 +38,6 @@ Figure &Cell::detach_figure() {
 
 void Cell::eat_figure() {
     if (figure) {
-        figure->invisible();
         figure = nullptr;
     }
 }

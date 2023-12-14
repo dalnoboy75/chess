@@ -6,8 +6,8 @@ using namespace Graph_lib;
 int ex_chessboard() {
     Chessboard board{Point{100, 100}};
     GamePosition game_position;
-    game_position.reading_game_position("../game_pos.txt");
-    game_position.visualise_game_position(board);
+    game_position.reading("../game_pos.txt");
+    game_position.visualise(board);
     board.wait_for_button();
     return 0;
     //return gui_main();

@@ -27,4 +27,18 @@ constexpr Point white_king{12, 12};
 constexpr Point black_king{12, 119};
 constexpr int chess_green = 115;
 constexpr int chess_white = 215;
+const vector<string> types_of_figure {
+        "black_pawn",
+        "white_pawn",
+        "white_rook",
+        "white_knight",
+        "white_bishop",
+        "white_queen",
+        "white_king",
+        "black_rook",
+        "black_knight",
+        "black_bishop",
+        "black_queen",
+        "black_king"
+};
 #endif //CHESS_CONSTANTS_H

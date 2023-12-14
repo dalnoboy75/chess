@@ -8,23 +8,23 @@
 #include "board.h"
 using namespace std;
 
-
-
 struct Position {
     char file;
     short int rank;
     string type;
 
+    bool is_correct_type();
     [[nodiscard]] bool is_correct_cell_id() const;
 };
 
-struct GamePosition {
+class GamePosition {
+public:
+    bool is_cell_vacant(Position &position);
+    void reading(const string &file_path);
+    void visualise(Chessboard &board);
+private:
     vector<Position> game_position;
-    bool is_sell_vacant(Position &position);
-    void reading_game_position(const string &file_path);
-    void visualise_game_position(Chessboard &board);
 };
-string get_type_of_figure(char type, char color);
 
 
 
