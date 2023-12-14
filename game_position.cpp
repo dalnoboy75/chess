@@ -4,7 +4,7 @@ bool Position::is_correct_cell_id() const {
     return file >= 'a' && file <= 'h' && rank >= 1 && rank <= 8;
 }
 
-bool Position::is_correct_type() {
+bool Position::is_correct_type() const {
     if (find(types_of_figure.begin(), types_of_figure.end(), type) != types_of_figure.end())
         return true;
     return false;
@@ -36,18 +36,18 @@ void GamePosition::reading(const string &file_path) {
             string type_of_figure = color.append("_").append(type);
 
             if (not in)
-                throw runtime_error("Ошибка считывания");
+                throw runtime_error("Read error");
             Position position = {file, rank, type_of_figure};
 
             if (!is_cell_vacant(position) || !position.is_correct_cell_id())
-                throw runtime_error("Некорректная позиция фигуры");
+                throw runtime_error("Incorrect position of the figure");
             if (!position.is_correct_type())
-                throw runtime_error("Некорректный тип фигуры");
+                throw runtime_error("Incorrect body type");
 
             game_position.push_back(position);
         }
         if (not in.is_open())
-            throw runtime_error("Файл не найден");
+            throw runtime_error("File not found");
         in.close();
     }
     catch (exception &e) {

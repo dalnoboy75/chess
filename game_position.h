@@ -13,8 +13,8 @@ struct Position {
     short int rank;
     string type;
 
-    bool is_correct_type();
-    [[nodiscard]] bool is_correct_cell_id() const;
+    bool is_correct_type() const;
+    bool is_correct_cell_id() const;
 };
 
 class GamePosition {
