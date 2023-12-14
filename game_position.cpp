@@ -30,13 +30,13 @@ void GamePosition::reading(const string &file_path) {
             if(not in)
                 break;
             in >> type >> file >> rank;
+            if (not in)
+                throw runtime_error("Read error");
 
             transform(color.begin(), color.end(), color.begin(), ::tolower);
             transform(type.begin(), type.end(), type.begin(), ::tolower);
             string type_of_figure = color.append("_").append(type);
 
-            if (not in)
-                throw runtime_error("Read error");
             Position position = {file, rank, type_of_figure};
 
             if (!is_cell_vacant(position) || !position.is_correct_cell_id())
@@ -48,7 +48,6 @@ void GamePosition::reading(const string &file_path) {
         }
         if (not in.is_open())
             throw runtime_error("File not found");
-        in.close();
     }
     catch (exception &e) {
         cerr << e.what();
