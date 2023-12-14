@@ -5,7 +5,7 @@ using namespace Graph_lib;
 
 int ex_chessboard() {
     Chessboard board{Point{100, 100}};
-    Game_Position game_position;
+    GamePosition game_position;
     game_position.reading_game_position("../game_pos.txt");
     game_position.visualise_game_position(board);
     board.wait_for_button();

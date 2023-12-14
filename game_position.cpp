@@ -33,7 +33,7 @@ string get_type_of_figure(char type, char color) {
     throw runtime_error("");
 }
 
-bool Game_Position::is_sell_vacant(Position &position) {
+bool GamePosition::is_sell_vacant(Position &position) {
     for (Position &i: game_position)
         if (i.file == position.file && i.rank == position.rank)
             return false;
@@ -41,7 +41,7 @@ bool Game_Position::is_sell_vacant(Position &position) {
     return true;
 }
 
-void Game_Position::reading_game_position(const string &file_path) {
+void GamePosition::reading_game_position(const string &file_path) {
     char color;
     char type;
     short int rank;
@@ -70,7 +70,7 @@ void Game_Position::reading_game_position(const string &file_path) {
     }
 }
 
-void Game_Position::visualise_game_position(Chessboard &board) {
+void GamePosition::visualise_game_position(Chessboard &board) {
     for (Position &position : game_position) {
         if (position.type == "white_pawn") {
             auto *pw = new Pawn(board, "pieces.png", white_pawn, true);

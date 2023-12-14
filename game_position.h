@@ -18,7 +18,7 @@ struct Position {
     [[nodiscard]] bool is_correct_cell_id() const;
 };
 
-struct Game_Position {
+struct GamePosition {
     vector<Position> game_position;
     bool is_sell_vacant(Position &position);
     void reading_game_position(const string &file_path);
