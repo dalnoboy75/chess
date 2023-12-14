@@ -6,7 +6,6 @@
 #include <vector>
 #include <string>
 #include "board.h"
-using namespace std;
 
 struct Position {
     char file;
