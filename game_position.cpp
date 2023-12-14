@@ -81,44 +81,44 @@ void Game_Position::visualise_game_position(Chessboard &board) {
             board.at(position.file, position.rank).attach_figure(*pw);
         }
         else if (position.type == "white_knight") {
-            Pawn *pw = new Pawn(board, "pieces.png", white_knight, true);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Knight kt_w{board, "pieces.png", white_knight, true};
+            board.at(position.file, position.rank).attach_figure(kt_w);
         }
         else if (position.type == "black_knight") {
-            Pawn *pw = new Pawn(board, "pieces.png", black_knight, false);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Knight kt_b{board, "pieces.png", black_knight, false};
+            board.at(position.file, position.rank).attach_figure(kt_b);
         }
         else if (position.type == "white_king") {
-            Pawn *pw = new Pawn(board, "pieces.png", white_king, true);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            King kg_w{board, "pieces.png", white_king, true};
+            board.at(position.file, position.rank).attach_figure(kg_w);
         }
         else if (position.type == "black_king") {
-            Pawn *pw = new Pawn(board, "pieces.png", black_king, false);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            King kg_b{board, "pieces.png", black_king, false};
+            board.at(position.file, position.rank).attach_figure(kg_b);
         }
         else if (position.type == "white_queen") {
-            Pawn *pw = new Pawn(board, "pieces.png", white_queen, true);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Queen qu_w{board, "pieces.png", white_queen, true};
+            board.at(position.file, position.rank).attach_figure(qu_w);
         }
         else if (position.type == "black_queen") {
-            Pawn *pw = new Pawn(board, "pieces.png", black_queen, false);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Queen qu_b{board, "pieces.png", black_queen, false};
+            board.at(position.file, position.rank).attach_figure(qu_b);;
         }
         else if (position.type == "white_bishop") {
-            Pawn *pw = new Pawn(board, "pieces.png", white_bishop, true);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Bishop bp_w{board, "pieces.png", white_bishop, true};
+            board.at(position.file, position.rank).attach_figure(bp_w);
         }
         else if (position.type == "black_bishop") {
-            Pawn *pw = new Pawn(board, "pieces.png", black_bishop, false);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Bishop bp_b{board, "pieces.png", black_bishop, false};
+            board.at(position.file, position.rank).attach_figure(bp_b);
         }
         else if (position.type == "white_rook") {
-            Pawn *pw = new Pawn(board, "pieces.png", white_rook, true);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Rook *rk_w = new Rook(board, "pieces.png", white_rook, true);
+            board.at(position.file, position.rank).attach_figure(*rk_w);
         }
         else if (position.type == "black_rook") {
-            Pawn *pw = new Pawn(board, "pieces.png", black_rook, false);
-            board.at(position.file, position.rank).attach_figure(*pw);
+            Rook *rk_b = new Rook(board, "pieces.png", black_rook, false);
+            board.at(position.file, position.rank).attach_figure(*rk_b);
         }
     }
 }
