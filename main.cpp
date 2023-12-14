@@ -1,15 +1,14 @@
 #include <exception>
 #include <iostream>
-
-#include "board.h"
-#include "figures.h"
-
+#include "game_position.h"
 using namespace Graph_lib;
-
 
 int ex_chessboard() {
     Chessboard board{Point{100, 100}};
-    for (int i = 0; i < 8; i++) {
+    Game_Position game_position;
+    game_position.reading_game_position("../game_pos.txt");
+    game_position.visualise_game_position(board);
+    /*for (int i = 0; i < 8; i++) {
         Pawn *pw = new Pawn(board, "pieces.png", white_pawn, true);
         char m = 'a' + i;
         board.at(m, 2).attach_figure(*pw);
@@ -51,7 +50,7 @@ int ex_chessboard() {
     King kg_w{board, "pieces.png", white_king, true};
     board.at('e', 1).attach_figure(kg_w);
     King kg_b{board, "pieces.png", black_king, false};
-    board.at('e', 8).attach_figure(kg_b);
+    board.at('e', 8).attach_figure(kg_b);*/
     board.wait_for_button();
     return 0;
     //return gui_main();

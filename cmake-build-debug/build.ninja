@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Projects/chess/cmake-build-debug/
+cmake_ninja_workdir = /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target chess
 
@@ -49,68 +49,61 @@ cmake_ninja_workdir = C$:/Projects/chess/cmake-build-debug/
 
 build cmake_object_order_depends_target_chess: phony || CMakeFiles/chess.dir
 
-build CMakeFiles/chess.dir/main.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/main.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\main.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/main.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/main.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/main.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir
 
-build CMakeFiles/chess.dir/board.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/board.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\board.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/board.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/board.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/board.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir
 
-build CMakeFiles/chess.dir/cell.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/cell.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\cell.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/cell.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/cell.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/cell.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir
 
-build CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/lib/Graph_lib/Graph.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\lib\Graph_lib\Graph.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir\lib\Graph_lib
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/lib/Graph_lib/Graph.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir/lib/Graph_lib
 
-build CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/lib/Graph_lib/GUI.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\lib\Graph_lib\GUI.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir\lib\Graph_lib
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/lib/Graph_lib/GUI.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir/lib/Graph_lib
 
-build CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/lib/Graph_lib/Window.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\lib\Graph_lib\Window.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir\lib\Graph_lib
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/lib/Graph_lib/Window.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir/lib/Graph_lib
 
-build CMakeFiles/chess.dir/figures.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:/Projects/chess/figures.cpp || cmake_object_order_depends_target_chess
-  DEP_FILE = CMakeFiles\chess.dir\figures.cpp.obj.d
-  FLAGS = -pedantic -Wall -Wextra -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Projects/chess/lib -isystem "C:/Program Files/FLTK/include"
-  OBJECT_DIR = CMakeFiles\chess.dir
-  OBJECT_FILE_DIR = CMakeFiles\chess.dir
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_PDB = chess.pdb
+build CMakeFiles/chess.dir/figures.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/figures.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/figures.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir
+
+build CMakeFiles/chess.dir/game_position.cpp.o: CXX_COMPILER__chess_unscanned_Debug /Users/Dfsavffc/Programming/Cpp/chess/game_position.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles/chess.dir/game_position.cpp.o.d
+  FLAGS = -pedantic -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/Dfsavffc/Programming/Cpp/chess/lib -isystem /opt/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/chess.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess.dir
 
 
 # =============================================================================
@@ -118,26 +111,24 @@ build CMakeFiles/chess.dir/figures.cpp.obj: CXX_COMPILER__chess_unscanned_Debug 
 
 
 #############################################
-# Link the executable chess.exe
+# Link the executable chess
 
-build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles/chess.dir/main.cpp.obj CMakeFiles/chess.dir/board.cpp.obj CMakeFiles/chess.dir/cell.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.obj CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.obj CMakeFiles/chess.dir/figures.cpp.obj | C$:/Program$ Files/FLTK/lib/libfltk_images.a C$:/Program$ Files/FLTK/lib/libfltk_forms.a C$:/Program$ Files/FLTK/lib/libfltk_gl.a C$:/Program$ Files/FLTK/lib/libfltk.a C$:/Program$ Files/FLTK/lib/libfltk.a
-  FLAGS = -pedantic -Wall -Wextra -g
-  LINK_LIBRARIES = "C:/Program Files/FLTK/lib/libfltk_images.a"  "C:/Program Files/FLTK/lib/libfltk_forms.a"  "C:/Program Files/FLTK/lib/libfltk_gl.a"  -lopengl32  "C:/Program Files/FLTK/lib/libfltk.a"  -lwsock32  -lcomctl32  -lopengl32  -lglu32  -lfltk_jpeg  -lfltk_png  -lfltk_z  "C:/Program Files/FLTK/lib/libfltk.a"  -lwsock32  -lcomctl32  -lglu32  -lfltk_jpeg  -lfltk_png  -lfltk_z  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  LINK_PATH = -LC:/PROGRA~1/FLTK/include/../lib
-  OBJECT_DIR = CMakeFiles\chess.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
-  TARGET_FILE = chess.exe
-  TARGET_IMPLIB = libchess.dll.a
-  TARGET_PDB = chess.pdb
+build chess: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles/chess.dir/main.cpp.o CMakeFiles/chess.dir/board.cpp.o CMakeFiles/chess.dir/cell.cpp.o CMakeFiles/chess.dir/lib/Graph_lib/Graph.cpp.o CMakeFiles/chess.dir/lib/Graph_lib/GUI.cpp.o CMakeFiles/chess.dir/lib/Graph_lib/Window.cpp.o CMakeFiles/chess.dir/figures.cpp.o CMakeFiles/chess.dir/game_position.cpp.o | /opt/local/lib/libfltk_images.dylib /opt/local/lib/libfltk_forms.dylib /opt/local/lib/libfltk_gl.dylib /opt/local/lib/libfltk.dylib /opt/local/lib/libfltk.dylib
+  FLAGS = -pedantic -Wall -Wextra -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk
+  LINK_LIBRARIES = -Wl,-rpath,/opt/local/include -Wl,-rpath,/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/OpenGL.framework/../lib  -framework Carbon -framework Cocoa -framework ApplicationServices -lz  /opt/local/lib/libfltk_images.dylib  /opt/local/lib/libfltk_forms.dylib  /opt/local/lib/libfltk_gl.dylib  -Xlinker -framework -Xlinker OpenGL  /opt/local/lib/libfltk.dylib  -Xlinker -framework -Xlinker OpenGL  -Xlinker -framework -Xlinker OpenGL  /opt/local/lib/libfltk.dylib
+  LINK_PATH = -L/opt/local/include   -L/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/OpenGL.framework/../lib
+  OBJECT_DIR = CMakeFiles/chess.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = chess
+  TARGET_PDB = chess.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Projects\chess\cmake-build-debug && C:\Users\ivan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -148,7 +139,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Projects\chess\cmake-build-debug && C:\Users\ivan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Projects\chess -BC:\Projects\chess\cmake-build-debug"
+  COMMAND = cd /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/Dfsavffc/Programming/Cpp/chess -B/Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -166,7 +157,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cmd.exe /C "cd /D C:\Projects\chess\cmake-build-debug && C:\Users\ivan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -P cmake_install.cmake"
+  COMMAND = cd /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -178,7 +169,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cmd.exe /C "cd /D C:\Projects\chess\cmake-build-debug && C:\Users\ivan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  COMMAND = cd /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -190,7 +181,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cmd.exe /C "cd /D C:\Projects\chess\cmake-build-debug && C:\Users\ivan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  COMMAND = cd /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -200,17 +191,15 @@ build install/strip: phony CMakeFiles/install/strip.util
 # =============================================================================
 # Target aliases.
 
-build chess: phony chess.exe
-
 # =============================================================================
 # Folder targets.
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Projects/chess/cmake-build-debug
+# Folder: /Users/Dfsavffc/Programming/Cpp/chess/cmake-build-debug
 
-build all: phony chess.exe
+build all: phony chess
 
 # =============================================================================
 # Built-in targets
@@ -219,14 +208,14 @@ build all: phony chess.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Projects/chess/CMakeLists.txt C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXCompiler.cmake.in C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCompilerIdDetection.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindBinUtils.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCCompiler.cmake.in C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystem.cmake.in C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCompilerCommon.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestRCCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindFLTK.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenGL.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/FeatureTesting.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindFLTK.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindOpenGL.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindX11.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake /Users/Dfsavffc/Programming/Cpp/chess/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Projects/chess/CMakeLists.txt C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXCompiler.cmake.in C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCompilerIdDetection.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindBinUtils.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCCompiler.cmake.in C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystem.cmake.in C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCompilerCommon.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestRCCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindFLTK.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenGL.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/FeatureTesting.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/ivan/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindFLTK.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindOpenGL.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindX11.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake /Users/Dfsavffc/Programming/Cpp/chess/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
 
 
 #############################################

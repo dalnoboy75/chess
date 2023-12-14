@@ -2,6 +2,9 @@
 #define CHESS_CONSTANTS_H
 
 #include <Graph_lib/Point.h>
+#include <vector>
+#include <string>
+using namespace std;
 
 using namespace Graph_lib;
 constexpr char pawn = 'p';
