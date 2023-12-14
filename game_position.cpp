@@ -5,16 +5,13 @@ bool Position::is_correct_cell_id() const {
 }
 
 bool Position::is_correct_type() const {
-    if (find(types_of_figure.begin(), types_of_figure.end(), type) != types_of_figure.end())
-        return true;
-    return false;
+    return find(types_of_figure.begin(), types_of_figure.end(), type) != types_of_figure.end();
 }
 
 bool GamePosition::is_cell_vacant(Position &position) {
     for (Position &i: game_position)
         if (i.file == position.file && i.rank == position.rank)
             return false;
-
     return true;
 }
 
