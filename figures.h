@@ -10,7 +10,8 @@ using namespace std;
 using namespace Graph_lib;
 
 struct Figure : Graph_lib::Image {
-    Figure(Graph_lib::Window &win, const string &s, Point p, char type) : Graph_lib::Image(Point{0, 0}, s), type{type} {
+    Figure(Graph_lib::Window &win, const string &s, Point p, char type, bool color) : Graph_lib::Image(Point{0, 0}, s),
+                                                                                      type{type}, color{color} {
         this->set_mask(p, size, size);
         win.attach(*this);
     }
@@ -25,65 +26,58 @@ struct Figure : Graph_lib::Image {
 
     char get_type() { return type; }
 
+protected:
+    bool color; // true - белый, false - черный
 private:
     const Cell *cell{nullptr};
     const int size = 90;
-    int x = 45, y = 45;
     char type;
 };
 
 struct Pawn : Figure { // это пешка (Матвей не понимает потому что он дурачок и не знает английского)
-    Pawn(Graph_lib::Window &win, const string &s, Point p, bool color) : Figure(win, s, p, pawn), color{color} {};
+    Pawn(Graph_lib::Window &win, const string &s, bool color) : Figure(win, s, color ? white_pawn : black_pawn, pawn,
+                                                                       color) {};
 
     bool is_white() override { return color; }
-
-private:
-    bool color; // true - белый, false - черный
 };
 
 struct Rook : Figure { //это ладья (Иван не понимает, потому что он дурачек и не знает тоже английского)
-    Rook(Graph_lib::Window &win, const string &s, Point p, bool color) : Figure(win, s, p, rook), color{color} {};
+    Rook(Graph_lib::Window &win, const string &s, bool color) : Figure(win, s, color ? white_rook : black_rook, rook,
+                                                                       color) {};
 
     bool is_white() override { return color; }
 
-private:
-    bool color; // true - белый, false - черный
 };
 
 struct Knight : Figure {
-    Knight(Graph_lib::Window &win, const string &s, Point p, bool color) : Figure(win, s, p, knight), color{color} {};
+    Knight(Graph_lib::Window &win, const string &s, bool color) : Figure(win, s, color ? white_knight : black_knight,
+                                                                         knight, color) {};
 
     bool is_white() override { return color; }
 
-private:
-    bool color; // true - белый, false - черный
 };
 
 struct Bishop : Figure {
-    Bishop(Graph_lib::Window &win, const string &s, Point p, bool color) : Figure(win, s, p, bishop), color{color} {};
+    Bishop(Graph_lib::Window &win, const string &s, bool color) : Figure(win, s, color ? white_bishop : black_bishop,
+                                                                         bishop, color) {};
 
     bool is_white() override { return color; }
 
-private:
-    bool color; // true - белый, false - черный
 };
 
 struct Queen : Figure {
-    Queen(Graph_lib::Window &win, const string &s, Point p, bool color) : Figure(win, s, p, queen), color{color} {};
+    Queen(Graph_lib::Window &win, const string &s, bool color) : Figure(win, s, color ? white_queen : black_queen,
+                                                                        queen, color) {};
 
     bool is_white() override { return color; }
-
-private:
-    bool color; // true - белый, false - черный
 };
 
 struct King : Figure {
-    King(Graph_lib::Window &win, const string &s, Point p, bool color) : Figure(win, s, p, king), color{color} {};
+    King(Graph_lib::Window &win, const string &s, bool color) : Figure(win, s, color ? white_king : black_king, king,
+                                                                       color) {};
 
     bool is_white() override { return color; }
 
-private:
-    bool color; // true - белый, false - черный
 };
 
 
