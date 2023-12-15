@@ -45,6 +45,8 @@ add_executable(
         figures.h
         figures.cpp
         constants.h
+        game_position.h
+        game_position.cpp
 
 )
 

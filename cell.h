@@ -44,7 +44,9 @@ struct Cell : Graph_lib::Button {
     }
 
     Figure &get_figure();
-
+    Figure* get_figure_ptr(){
+        return figure;
+    }
     static constexpr int size = 90;
 private:
     Type type;

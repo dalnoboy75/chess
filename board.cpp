@@ -86,7 +86,11 @@ void Chessboard::clicked(Cell &c) {
                     if (c.has_figure() &&
                         ((c.number - selected->number == 1) && abs(c.symbol - selected->symbol) == 1)) {
                         Cell &c1 = *selected;
-                        c.eat_figure();
+                        if (c.has_figure()){
+                            this->detach(*c.get_figure_ptr());
+                            delete c.get_figure_ptr();
+                            c.eat_figure();
+                        }
                         c.attach_figure(c1.detach_figure());
                         this->which_move = !this->which_move;
                     }
@@ -94,7 +98,11 @@ void Chessboard::clicked(Cell &c) {
                     if (c.has_figure() &&
                         (c.number - selected->number == -1 && abs(c.symbol - selected->symbol) == 1)) {
                         Cell &c1 = *selected;
-                        c.eat_figure();
+                        if (c.has_figure()){
+                            this->detach(*c.get_figure_ptr());
+                            delete c.get_figure_ptr();
+                            c.eat_figure();
+                        }
                         c.attach_figure(c1.detach_figure());
                         this->which_move = !this->which_move;
                     }
@@ -162,7 +170,11 @@ void Chessboard::move_figure(Cell &c) {
             }
             if (k == 0 && (c.number == selected->number || c.symbol == selected->symbol)) {
                 Cell &c1 = *selected;
-                c.eat_figure();
+                if (c.has_figure()){
+                    this->detach(*c.get_figure_ptr());
+                    delete c.get_figure_ptr();
+                    c.eat_figure();
+                }
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
             }
@@ -172,7 +184,11 @@ void Chessboard::move_figure(Cell &c) {
             }
             if (k == 0 && (c.number == selected->number || c.symbol == selected->symbol)) {
                 Cell &c1 = *selected;
-                c.eat_figure();
+                if (c.has_figure()){
+                    this->detach(*c.get_figure_ptr());
+                    delete c.get_figure_ptr();
+                    c.eat_figure();
+                }
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
             }
@@ -183,7 +199,11 @@ void Chessboard::move_figure(Cell &c) {
         if ((abs(c.symbol - selected->symbol) == 1 && abs(c.number - selected->number) == 2) ||
             (abs(c.symbol - selected->symbol) == 2 && abs(c.number - selected->number) == 1)) {
             Cell &c1 = *selected;
-            c.eat_figure();
+            if (c.has_figure()){
+                this->detach(*c.get_figure_ptr());
+                delete c.get_figure_ptr();
+                c.eat_figure();
+            }
             c.attach_figure(c1.detach_figure());
             this->which_move = !this->which_move;
         }
@@ -229,7 +249,11 @@ void Chessboard::move_figure(Cell &c) {
             }
             if (possible_step) {
                 Cell &c1 = *selected;
-                c.eat_figure();
+                if (c.has_figure()){
+                    this->detach(*c.get_figure_ptr());
+                    delete c.get_figure_ptr();
+                    c.eat_figure();
+                }
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
 
@@ -243,7 +267,11 @@ void Chessboard::move_figure(Cell &c) {
             }
             if (k == 0 && (c.number == selected->number || c.symbol == selected->symbol)) {
                 Cell &c1 = *selected;
-                c.eat_figure();
+                if (c.has_figure()){
+                    this->detach(*c.get_figure_ptr());
+                    delete c.get_figure_ptr();
+                    c.eat_figure();
+                }
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
             }
@@ -253,7 +281,11 @@ void Chessboard::move_figure(Cell &c) {
             }
             if (k == 0 && (c.number == selected->number || c.symbol == selected->symbol)) {
                 Cell &c1 = *selected;
-                c.eat_figure();
+                if (c.has_figure()){
+                    this->detach(*c.get_figure_ptr());
+                    delete c.get_figure_ptr();
+                    c.eat_figure();
+                }
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
             }
@@ -266,7 +298,11 @@ void Chessboard::move_figure(Cell &c) {
             }
             if (k == 0 && (abs(c.symbol - selected->symbol) == abs(c.number - selected->number))) {
                 Cell &c1 = *selected;
-                c.eat_figure();
+                if (c.has_figure()){
+                    this->detach(*c.get_figure_ptr());
+                    delete c.get_figure_ptr();
+                    c.eat_figure();
+                }
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
 
@@ -277,7 +313,11 @@ void Chessboard::move_figure(Cell &c) {
         if ((abs(c.symbol - selected->symbol) == 1 && abs(c.number - selected->number) <= 1) ||
             ((c.symbol == selected->symbol) && abs(c.number - selected->number) == 1)) {
             Cell &c1 = *selected;
-            c.eat_figure();
+            if (c.has_figure()){
+                this->detach(*c.get_figure_ptr());
+                delete c.get_figure_ptr();
+                c.eat_figure();
+            }
             c.attach_figure(c1.detach_figure());
             this->which_move = !this->which_move;
         }
