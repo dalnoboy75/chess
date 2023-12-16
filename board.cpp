@@ -94,6 +94,7 @@ void Chessboard::clicked(Cell &c) {
                         c.attach_figure(c1.detach_figure());
                         this->which_move = !this->which_move;
                     }
+
                 } else {
                     if (c.has_figure() &&
                         (c.number - selected->number == -1 && abs(c.symbol - selected->symbol) == 1)) {
@@ -121,7 +122,62 @@ void Chessboard::clicked(Cell &c) {
                 c.deactivate();
             }
         }
-    } else {
+
+    }
+    else if (c.symbol == selected->symbol -1 && selected->has_figure() && !c.has_figure() && selected->symbol != 0 && this->at(selected->symbol - 1 + 'a', selected -> number).has_figure() && this->at(selected->symbol - 1 + 'a', selected -> number).get_figure().get_type() == pawn && this->at(selected->symbol - 1 + 'a', selected -> number).get_figure().do_big_step ) {
+        if (!c.has_figure() && selected->symbol - 1 == c.symbol && selected->number == c.number + 1) {
+            Cell &c1 = *selected;
+            this->detach(*this->at(selected->symbol - 1 + 'a', selected -> number).get_figure_ptr());
+            delete this->at(selected->symbol - 1 + 'a', selected -> number).get_figure_ptr();
+            this->at(selected->symbol - 1 + 'a', selected -> number).eat_figure();
+            c.attach_figure(c1.detach_figure());
+            this->which_move = !this->which_move;
+            selected->deactivate();
+            this->delete_moves();
+            selected = nullptr;
+            c.deactivate();
+        }
+        else if (!c.has_figure() && selected->symbol - 1 == c.symbol && selected->number == c.number - 1) {
+            Cell &c1 = *selected;
+            this->detach(*this->at(selected->symbol - 1 + 'a', selected -> number).get_figure_ptr());
+            delete this->at(selected->symbol - 1 + 'a', selected -> number).get_figure_ptr();
+            this->at(selected->symbol - 1 + 'a', selected -> number).eat_figure();
+            c.attach_figure(c1.detach_figure());
+            this->which_move = !this->which_move;
+            selected->deactivate();
+            this->delete_moves();
+            selected = nullptr;
+            c.deactivate();
+        }
+    }
+    else if (c.symbol == selected->symbol +1  && selected->has_figure() &&  !c.has_figure() &&  selected->symbol != 7 && this->at(selected->symbol + 1 + 'a', selected -> number).has_figure() && this->at(selected->symbol + 1 + 'a', selected -> number).get_figure().get_type() == pawn and this->at(selected->symbol + 1 + 'a', selected -> number).get_figure().do_big_step) {
+        if (!c.has_figure() && selected->symbol + 1 == c.symbol && selected->number == c.number + 1) {
+            Cell &c1 = *selected;
+            this->detach(*this->at(selected->symbol + 1 + 'a', selected -> number).get_figure_ptr());
+            delete this->at(selected->symbol + 1 + 'a', selected -> number).get_figure_ptr();
+            this->at(selected->symbol + 1 + 'a', selected -> number).eat_figure();
+            c.attach_figure(c1.detach_figure());
+            this->which_move = !this->which_move;
+            selected->deactivate();
+            this->delete_moves();
+            selected = nullptr;
+            c.deactivate();
+        }
+        else if (!c.has_figure() && selected->symbol + 1 == c.symbol && selected->number == c.number - 1) {
+            Cell &c1 = *selected;
+            this->detach(*this->at(selected->symbol + 1 + 'a', selected -> number).get_figure_ptr());
+            delete this->at(selected->symbol + 1 + 'a', selected -> number).get_figure_ptr();
+            this->at(selected->symbol + 1 + 'a', selected -> number).eat_figure();
+            c.attach_figure(c1.detach_figure());
+            this->which_move = !this->which_move;
+            selected->deactivate();
+            this->delete_moves();
+            selected = nullptr;
+            c.deactivate();
+        }
+    }
+
+    else {
         if (selected->has_figure() && this->which_move == selected->get_figure().is_white()) {
             //move figure
             this->move_figure(c);
@@ -145,6 +201,11 @@ void Chessboard::move_figure(Cell &c) {
                     this->which_move = !this->which_move;
                     return;
                 }
+                if (c.number == 4 && selected->number == 2)
+                    selected->get_figure_ptr()->do_big_step = true;
+                else {
+                    selected->get_figure_ptr()->do_big_step = true;
+                }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
                 this->which_move = !this->which_move;
@@ -156,6 +217,11 @@ void Chessboard::move_figure(Cell &c) {
                     (this->check_move(6, c.symbol) == true)) {
                     this->which_move = !this->which_move;
                     return;
+                }
+                if (c.number == 5 && selected->number == 7)
+                    selected->get_figure_ptr()->do_big_step = true;
+                else {
+                    selected->get_figure_ptr()->do_big_step = true;
                 }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
@@ -586,90 +652,188 @@ void Chessboard::virtual_move() {
                     }
                 }
             }
-
-            if (selected->number + 1 <= 8 and selected->symbol + 1 <= 7) {
-                Cell *c1 = &this->at('a' + selected->symbol + 1, selected->number + 1);
-                if (c1->has_figure() and !c1->get_figure().is_white()) {
-                    Circle *vm = new Circle({c1->center().x, c1->center().y}, 20);
-                    vm->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm);
-                    this->attach(*vm);
-                }
-            }
-            if (selected->number + 1 <= 8 and selected->symbol - 1 >= 0) {
-                Cell *c2 = &this->at('a' + selected->symbol - 1, selected->number + 1);
-                if (c2->has_figure() and !c2->get_figure().is_white()) {
-                    Circle *vm = new Circle({c2->center().x, c2->center().y}, 20);
-                    vm->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm);
-                    this->attach(*vm);
-                }
-            }
-        } else {
-            if (selected->number - 1 >= 1) {
-                Cell *c = &this->at('a' + selected->symbol, selected->number - 1);
+            if (selected->number + 1 < 7 && selected->has_figure() && selected->symbol != 0 && this->at(selected->symbol - 1 + 'a', selected -> number).has_figure() && this->at(selected->symbol - 1 + 'a', selected -> number).get_figure().get_type() == pawn && this->at(selected->symbol - 1 + 'a', selected -> number).get_figure().do_big_step ) {
+                Cell *c = &this->at('a' + selected->symbol - 1, selected->number + 1);
                 if (!c->has_figure()) {
-                    Circle *vm = new Circle({c->center().x, c->center().y}, 20);
-                    vm->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm);
-                    this->attach(*vm);
-                    Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
-                    if (selected->number == 7 && !cs->has_figure()) {
-                        Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
-                        vm2->set_fill_color(FL_DARK_GREEN);
-                        this->green_circles.push_back(vm2);
-                        this->attach(*vm2);
-                    }
+                    Circle *vm2 = new Circle({c->center().x, c->center().y}, 20);
+                    vm2->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm2);
+                    this->attach(*vm2);
                 }
             }
-            if (selected->number - 1 >= 1 and selected->symbol + 1 <= 7) {
-                Cell *c1 = &this->at('a' + selected->symbol + 1, selected->number - 1);
-                if (c1->has_figure() and c1->get_figure().is_white()) {
-                    Circle *vm = new Circle({c1->center().x, c1->center().y}, 20);
-                    vm->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm);
-                    this->attach(*vm);
+            if (selected->number + 1 < 7 && selected->has_figure() && selected->symbol != 0 && this->at(selected->symbol + 1 + 'a', selected -> number).has_figure() && this->at(selected->symbol + 1 + 'a', selected -> number).get_figure().get_type() == pawn && this->at(selected->symbol + 1 + 'a', selected -> number).get_figure().do_big_step ) {
+                Cell *c = &this->at('a' + selected->symbol + 1, selected->number + 1);
+                if (!c->has_figure()) {
+                    Circle *vm2 = new Circle({c->center().x, c->center().y}, 20);
+                    vm2->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm2);
+                    this->attach(*vm2);
                 }
             }
-            if (selected->number - 1 >= 1 and selected->symbol - 1 >= 0) {
-                Cell *c2 = &this->at('a' + selected->symbol - 1, selected->number - 1);
-                if (c2->has_figure() and c2->get_figure().is_white()) {
-                    Circle *vm = new Circle({c2->center().x, c2->center().y}, 20);
-                    vm->set_fill_color(FL_DARK_GREEN);
-                    this->green_circles.push_back(vm);
-                    this->attach(*vm);
+        if (selected->number + 1 <= 8 and selected->symbol + 1 <= 7) {
+            Cell *c1 = &this->at('a' + selected->symbol + 1, selected->number + 1);
+            if (c1->has_figure() and !c1->get_figure().is_white()) {
+                Circle *vm = new Circle({c1->center().x, c1->center().y}, 20);
+                vm->set_fill_color(FL_DARK_GREEN);
+                this->green_circles.push_back(vm);
+                this->attach(*vm);
+            }
+        }
+        if (selected->number + 1 <= 8 and selected->symbol - 1 >= 0) {
+            Cell *c2 = &this->at('a' + selected->symbol - 1, selected->number + 1);
+            if (c2->has_figure() and !c2->get_figure().is_white()) {
+                Circle *vm = new Circle({c2->center().x, c2->center().y}, 20);
+                vm->set_fill_color(FL_DARK_GREEN);
+                this->green_circles.push_back(vm);
+                this->attach(*vm);
+            }
+        }
+    } else {
+        if (selected->number - 1 >= 1) {
+            Cell *c = &this->at('a' + selected->symbol, selected->number - 1);
+            if (!c->has_figure()) {
+                Circle *vm = new Circle({c->center().x, c->center().y}, 20);
+                vm->set_fill_color(FL_DARK_GREEN);
+                this->green_circles.push_back(vm);
+                this->attach(*vm);
+                Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
+                if (selected->number == 7 && !cs->has_figure()) {
+                    Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
+                    vm2->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm2);
+                    this->attach(*vm2);
                 }
             }
         }
+            if (selected->number -1 > 1 && selected->has_figure() && selected->symbol != 0 && this->at(selected->symbol - 1 + 'a', selected -> number).has_figure() && this->at(selected->symbol - 1 + 'a', selected -> number).get_figure().get_type() == pawn && this->at(selected->symbol - 1 + 'a', selected -> number).get_figure().do_big_step ) {
+                Cell *c = &this->at('a' + selected->symbol - 1, selected->number - 1);
+                if (!c->has_figure()) {
+                    Circle *vm2 = new Circle({c->center().x, c->center().y}, 20);
+                    vm2->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm2);
+                    this->attach(*vm2);
+                }
+            }
+            if (selected->number - 1 > 1 && selected->has_figure() && selected->symbol != 0 && this->at(selected->symbol + 1 + 'a', selected -> number).has_figure() && this->at(selected->symbol + 1 + 'a', selected -> number).get_figure().get_type() == pawn && this->at(selected->symbol + 1 + 'a', selected -> number).get_figure().do_big_step ) {
+                Cell *c = &this->at('a' + selected->symbol + 1, selected->number - 1);
+                if (!c->has_figure()) {
+                    Circle *vm2 = new Circle({c->center().x, c->center().y}, 20);
+                    vm2->set_fill_color(FL_DARK_GREEN);
+                    this->green_circles.push_back(vm2);
+                    this->attach(*vm2);
+                }
+            }
+        if (selected->number - 1 >= 1 and selected->symbol + 1 <= 7) {
+            Cell *c1 = &this->at('a' + selected->symbol + 1, selected->number - 1);
+            if (c1->has_figure() and c1->get_figure().is_white()) {
+                Circle *vm = new Circle({c1->center().x, c1->center().y}, 20);
+                vm->set_fill_color(FL_DARK_GREEN);
+                this->green_circles.push_back(vm);
+                this->attach(*vm);
+            }
+        }
+        if (selected->number - 1 >= 1 and selected->symbol - 1 >= 0) {
+            Cell *c2 = &this->at('a' + selected->symbol - 1, selected->number - 1);
+            if (c2->has_figure() and c2->get_figure().is_white()) {
+                Circle *vm = new Circle({c2->center().x, c2->center().y}, 20);
+                vm->set_fill_color(FL_DARK_GREEN);
+                this->green_circles.push_back(vm);
+                this->attach(*vm);
+            }
+        }
     }
-    if (selected->get_figure().get_type() == rook) {
-        virtual_move_rook();
-    }
+}
+if (selected->get_figure().get_type() == rook) {
+    virtual_move_rook();
+}
 
-    if (selected->get_figure().get_type() == bishop) {
-        virtual_move_bishop();
-    }
+if (selected->get_figure().get_type() == bishop) {
+    virtual_move_bishop();
+}
 
-    if (selected->get_figure().get_type() == queen) {
-        virtual_move_rook();
-        virtual_move_bishop();
-    }
+if (selected->get_figure().get_type() == queen) {
+    virtual_move_rook();
+    virtual_move_bishop();
+}
 
-    if (selected->get_figure().get_type() == king) {
-        virtual_move_king();
-    }
+if (selected->get_figure().get_type() == king) {
+    virtual_move_king();
+}
 
-    if (selected->get_figure().get_type() == knight) {
-        virtual_move_knight();
-    }
+if (selected->get_figure().get_type() == knight) {
+    virtual_move_knight();
+}
 }
 
 void Chessboard::delete_moves() {
-    if (this->green_circles.size()) {
-        for (int i = 0; i < int(this->green_circles.size()); i++) {
-            this->detach(*this->green_circles[i]);
-            delete this->green_circles[i];
-        }
-        this->green_circles.clear();
+if (this->green_circles.size()) {
+    for (int i = 0; i < int(this->green_circles.size()); i++) {
+        this->detach(*this->green_circles[i]);
+        delete this->green_circles[i];
     }
+    this->green_circles.clear();
+}
+}
+bool Chessboard::is_check(bool color) {
+    Cell* KONG = nullptr;
+    for(int i = 0; i < 64; ++i) {
+        Cell& c = cells[i];
+        if (c.has_figure() && c.get_figure().get_type() == king && c.get_figure().is_white() != color) {
+            KONG = &cells[i];
+            break;
+        }
+    }
+    Cell& KING = *KONG;
+
+    // Проверяем вертикали и горизонтали
+
+    //верх
+    if (KING.number != 8) {
+        for (int i = KING.number + 1; i < 9; ++i) {
+            Cell &c = this->at(KING.symbol + 'a', i);
+
+            if (c.has_figure() && (c.get_figure().get_type() == rook || c.get_figure().get_type() == queen) &&
+                c.get_figure().is_white() == color)
+                return true;
+            else
+                return false;
+        }
+    }
+    //вниз
+    if (KING.number != 1) {
+        for (int i = KING.number - 1; i > 0; --i) {
+            Cell &c = this->at(KING.symbol + 'a', i);
+
+            if (c.has_figure() && (c.get_figure().get_type() == rook || c.get_figure().get_type() == queen) &&
+                c.get_figure().is_white() == color)
+                return true;
+            else
+                return false;
+        }
+    }
+    //вправо
+    if (KING.symbol + 'a' != 'h') {
+        for (int i = KING.symbol + 1; i < 8; ++i) {
+            Cell &c = this->at(i + 'a', KING.number);
+
+            if (c.has_figure() && (c.get_figure().get_type() == rook || c.get_figure().get_type() == queen) &&
+                c.get_figure().is_white() == color)
+                return true;
+            else
+                return false;
+        }
+    }
+    //влево
+    if (KING.symbol + 'a' != 'a') {
+        for (int i = KING.symbol - 1; i >= 0; --i) {
+            Cell &c = this->at(i + 'a', KING.number);
+
+            if (c.has_figure() && (c.get_figure().get_type() == rook || c.get_figure().get_type() == queen) &&
+                c.get_figure().is_white() == color)
+                return true;
+            else
+                return false;
+        }
+    }
+
 }

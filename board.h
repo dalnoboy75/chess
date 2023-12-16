@@ -59,6 +59,7 @@ private:
         auto &btn = Graph_lib::reference_to<Cell>(widget);
         dynamic_cast<Chessboard &>(btn.window()).clicked(btn);
     }
+    bool is_check(bool color); // true - белый, false - черный
 
     void virtual_move();
 
