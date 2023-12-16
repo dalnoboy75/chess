@@ -577,8 +577,8 @@ void Chessboard::virtual_move() {
                     vm->set_fill_color(FL_DARK_GREEN);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
-                    Cell *cs = &this->at('a' + selected->symbol, selected->number + 2);
-                    if (selected->number == 2 && !cs->has_figure()) {
+                    if (selected->number == 2 && !this->at('a' + selected->symbol, selected->number + 2).has_figure()) {
+                        Cell *cs = &this->at('a' + selected->symbol, selected->number + 2);
                         Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
                         vm2->set_fill_color(FL_DARK_GREEN);
                         this->green_circles.push_back(vm2);
@@ -613,8 +613,8 @@ void Chessboard::virtual_move() {
                     vm->set_fill_color(FL_DARK_GREEN);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
-                    Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
-                    if (selected->number == 7 && !cs->has_figure()) {
+                    if (selected->number == 7 && !this->at('a' + selected->symbol, selected->number - 2).has_figure()) {
+                        Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
                         Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 20);
                         vm2->set_fill_color(FL_DARK_GREEN);
                         this->green_circles.push_back(vm2);
