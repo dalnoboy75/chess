@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cmath>
+#include <thread>
+#include<chrono>
 #include "constants.h"
 #include "board.h"
+
 
 using namespace Graph_lib;
 
@@ -624,4 +627,13 @@ void Chessboard::delete_moves() {
         }
         this->green_circles.clear();
     }
+}
+
+
+void Chessboard::draw_check_inf() {
+    Graph_lib::Text t{Point{300,300},"CHECK"};
+    t.set_font_size(50);
+    this->attach(t);
+    std::this_thread::sleep_for(2000ms);
+    this->detach(t);
 }

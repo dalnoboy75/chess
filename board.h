@@ -75,6 +75,8 @@ private:
     void virtual_move_king();
 
     void virtual_move_knight();
+
+    void draw_check_inf();
 };
 
 #endif  // #ifndef BOARD_H
