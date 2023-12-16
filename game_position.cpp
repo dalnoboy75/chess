@@ -22,9 +22,9 @@ void GamePosition::reading(const string &file_path) {
     char file;
     try {
         ifstream in(file_path);
-        while(in.is_open()) {
+        while (in.is_open()) {
             in >> color;
-            if(not in)
+            if (not in)
                 break;
             in >> type >> file >> rank;
             if (not in)
@@ -53,53 +53,42 @@ void GamePosition::reading(const string &file_path) {
 }
 
 void GamePosition::visualise(Chessboard &board) {
-    for (Position &position : game_position) {
+    for (Position &position: game_position) {
         if (position.type == "white_pawn") {
-            auto *pw = new Pawn(board, "pieces.png", white_pawn, true);
+            auto *pw = new Pawn(board, "pieces.png", true);
             board.at(position.file, position.rank).attach_figure(*pw);
-        }
-        else if (position.type == "black_pawn") {
-            auto *pw = new Pawn(board, "pieces.png", black_pawn, false);
+        } else if (position.type == "black_pawn") {
+            auto *pw = new Pawn(board, "pieces.png", false);
             board.at(position.file, position.rank).attach_figure(*pw);
-        }
-        else if (position.type == "white_knight") {
-            auto *kt_w = new Knight(board, "pieces.png", white_knight, true);
+        } else if (position.type == "white_knight") {
+            auto *kt_w = new Knight(board, "pieces.png", true);
             board.at(position.file, position.rank).attach_figure(*kt_w);
-        }
-        else if (position.type == "black_knight") {
-            auto *kt_b = new Knight(board, "pieces.png", black_knight, false);
+        } else if (position.type == "black_knight") {
+            auto *kt_b = new Knight(board, "pieces.png", false);
             board.at(position.file, position.rank).attach_figure(*kt_b);
-        }
-        else if (position.type == "white_king") {
-            auto *kg_w = new King(board, "pieces.png", white_king, true);
+        } else if (position.type == "white_king") {
+            auto *kg_w = new King(board, "pieces.png", true);
             board.at(position.file, position.rank).attach_figure(*kg_w);
-        }
-        else if (position.type == "black_king") {
-            auto *kg_b = new King(board, "pieces.png", black_king, false);
+        } else if (position.type == "black_king") {
+            auto *kg_b = new King(board, "pieces.png", false);
             board.at(position.file, position.rank).attach_figure(*kg_b);
-        }
-        else if (position.type == "white_queen") {
-            auto *qu_w = new Queen{board, "pieces.png", white_queen, true};
+        } else if (position.type == "white_queen") {
+            auto *qu_w = new Queen{board, "pieces.png", true};
             board.at(position.file, position.rank).attach_figure(*qu_w);
-        }
-        else if (position.type == "black_queen") {
-            auto *qu_b = new Queen(board, "pieces.png", black_queen, false);
+        } else if (position.type == "black_queen") {
+            auto *qu_b = new Queen(board, "pieces.png", false);
             board.at(position.file, position.rank).attach_figure(*qu_b);
-        }
-        else if (position.type == "white_bishop") {
-            auto *bp_w = new Bishop(board, "pieces.png", white_bishop, true);
+        } else if (position.type == "white_bishop") {
+            auto *bp_w = new Bishop(board, "pieces.png", true);
             board.at(position.file, position.rank).attach_figure(*bp_w);
-        }
-        else if (position.type == "black_bishop") {
-            auto *bp_b = new Bishop(board, "pieces.png", black_bishop, false);
+        } else if (position.type == "black_bishop") {
+            auto *bp_b = new Bishop(board, "pieces.png", false);
             board.at(position.file, position.rank).attach_figure(*bp_b);
-        }
-        else if (position.type == "white_rook") {
-            auto *rk_w = new Rook(board, "pieces.png", white_rook, true);
+        } else if (position.type == "white_rook") {
+            auto *rk_w = new Rook(board, "pieces.png", true);
             board.at(position.file, position.rank).attach_figure(*rk_w);
-        }
-        else if (position.type == "black_rook") {
-            auto *rk_b = new Rook(board, "pieces.png", black_rook, false);
+        } else if (position.type == "black_rook") {
+            auto *rk_b = new Rook(board, "pieces.png", false);
             board.at(position.file, position.rank).attach_figure(*rk_b);
         }
     }

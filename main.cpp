@@ -1,6 +1,7 @@
 #include <exception>
 #include <iostream>
 #include "game_position.h"
+
 using namespace Graph_lib;
 
 int ex_chessboard() {
@@ -10,13 +11,13 @@ int ex_chessboard() {
     game_position.visualise(board);
     board.wait_for_button();
     return 0;
-    //return gui_main();
+
 }
 
 int main()
 try {
     //  ex_my_window();
-    ex_chessboard();   
+    ex_chessboard();
 }
 catch (std::exception &e) {
     std::cout << e.what() << std::endl;

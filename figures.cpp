@@ -4,8 +4,6 @@
 using namespace Graph_lib;
 
 void Figure::attach(const Cell &c) {
-    move(c.center().x - x, c.center().y - y);
-    x += c.center().x - x;
-    y += c.center().y - y;
+    move(c.center().x - (point(0).x + size/2), c.center().y - (point(0).y + size/2));
     cell = &c;
 }
