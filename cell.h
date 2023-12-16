@@ -40,7 +40,7 @@ struct Cell : Graph_lib::Button {
     Figure &detach_figure();
 
     bool has_figure() const {
-        return figure != nullptr;
+        return figure != nullptr; 
     }
 
     Figure &get_figure();
