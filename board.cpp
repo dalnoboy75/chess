@@ -35,9 +35,12 @@ std::string digits() {
 
 
 Chessboard::Chessboard(Point xy)
-        : Graph_lib::Window{xy, width, height, "Chess"}, x_labels{letters()}, y_labels{digits()} {
+        : Graph_lib::Window{xy, width, height, "Chess"}, x_labels{letters()}, y_labels{digits()}, check{Point{50,400},""} {
     size_range(width, height, width, height);  // fixed window size
-
+    check.set_font_size(70);
+    check.set_font(FL_HELVETICA_BOLD);
+    check.set_color(72);
+    attach(check);
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < N; ++j) {
             cells.push_back(new Cell{Point{margin + j * Cell::size,
@@ -71,6 +74,7 @@ void Chessboard::clicked(Cell &c) {
             this->virtual_move();
         } else {
             c.deactivate();
+            selected = nullptr;
         }
     } else if (c.has_figure() && selected &&
                (!selected->has_figure() || this->which_move == selected->get_figure().is_white())) {
@@ -976,7 +980,7 @@ int Chessboard::is_check(bool color) {
                 c.get_figure().is_white() == color) {
                 return 1;
             }
-            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number + 1)
+            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number + 1 && !color)
                 return 1;
             else if (!c.has_figure())
                 continue;
@@ -995,7 +999,7 @@ int Chessboard::is_check(bool color) {
                 c.get_figure().is_white() == color) {
                 return 1;
             }
-            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number + 1)
+            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number + 1 && !color)
                 return 1;
             else if (!c.has_figure())
                 continue;
@@ -1014,7 +1018,7 @@ int Chessboard::is_check(bool color) {
                 c.get_figure().is_white() == color) {
                 return 1;
             }
-            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number - 1)
+            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number - 1 && color)
                 return 1;
             else if (!c.has_figure())
                 continue;
@@ -1032,7 +1036,7 @@ int Chessboard::is_check(bool color) {
                 c.get_figure().is_white() == color) {
                 return 1;
             }
-            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number - 1)
+            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number - 1 && color)
                 return 1;
             else if (!c.has_figure())
                 continue;
@@ -1062,31 +1066,31 @@ int Chessboard::is_check(bool color) {
 }
 
 void Chessboard::draw_check_inf() {
+    put_on_top(check);
     if (!which_move){
-        check->set_label("CHECK FOR WHITE");
+        check.set_label("CHECK FOR WHITE");
     }
     else{
-        check->set_label("CHECK FOR BLACK");
+        check.set_label("CHECK FOR BLACK");
     }
 
     //
 }
 void Chessboard::game_over() {
+    put_on_top(check);
     if(which_move){
-        check->set_color(118);
-        check->set_label("        WHITE WIN   ");
-        delete check;
+        check.set_color(118);
+        check.set_label("        WHITE WIN   ");
     }
     else{
-        check->set_color(118);
-        check->set_label("         BLACK WIN   ");
-        delete check;
+        check.set_color(118);
+        check.set_label("         BLACK WIN   ");
     }
     is_finished = true;
 }
 
 void Chessboard::hide_check_inf() {
-    check->set_label("");
+    check.set_label("");
 }
 void Chessboard::all_pawns_no_big_step() {
     for (int i = 0; i < 64; ++i) {
