@@ -92,4 +92,9 @@ void GamePosition::visualise(Chessboard &board) {
             board.at(position.file, position.rank).attach_figure(*rk_b);
         }
     }
+    Text* t = new Text{Point{340,360},""};
+    t->set_font_size(70);
+    t->set_color(Color::invisible);
+
+    board.check = t;
 }

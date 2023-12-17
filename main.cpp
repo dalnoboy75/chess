@@ -10,6 +10,11 @@ int ex_chessboard() {
     GamePosition game_position;
     game_position.reading("../game_pos.txt");
     game_position.visualise(board);
+    Text* t = new Text{Point{50,360},""};
+    t->set_font_size(70);
+    t->set_color(Color::black);
+    board.attach(*t);
+    board.check = t;
     return gui_main();
 
 }
