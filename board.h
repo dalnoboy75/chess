@@ -30,8 +30,7 @@ struct Chessboard : Graph_lib::Window {
     static inline bool is_finished = false;
     static constexpr int N = 8;  // board N by N
     static constexpr int N_max = 8;
-    int step_cnt = 0;
-    Graph_lib::Text* check;
+    Graph_lib::Text check;
 
     static_assert(N <= N_max,
                   "do not allow board larger than N_max by N_max");
