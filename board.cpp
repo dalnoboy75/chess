@@ -35,7 +35,7 @@ std::string digits() {
 
 
 Chessboard::Chessboard(Point xy)
-        : Graph_lib::Window{xy, width, height, "Chessboard"}, x_labels{letters()}, y_labels{digits()} {
+        : Graph_lib::Window{xy, width, height, "Chess"}, x_labels{letters()}, y_labels{digits()} {
     size_range(width, height, width, height);  // fixed window size
 
     for (int i = 0; i < N; ++i)
@@ -1073,10 +1073,14 @@ void Chessboard::draw_check_inf() {
 }
 void Chessboard::game_over() {
     if(which_move){
-        check->set_label("WHITE WIN");
+        check->set_color(118);
+        check->set_label("        WHITE WIN   ");
+        delete check;
     }
     else{
-        check->set_label("BLACK WIN");
+        check->set_color(118);
+        check->set_label("         BLACK WIN   ");
+        delete check;
     }
     is_finished = true;
 }
