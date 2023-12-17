@@ -51,6 +51,7 @@ private:
     static constexpr int height = N * Cell::size + 2 * margin;
     vector<Graph_lib::Circle *> green_circles;
     Graph_lib::Vector_ref<Cell> cells;
+
     Graph_lib::Marks x_labels;
     Graph_lib::Marks y_labels;
 

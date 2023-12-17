@@ -16,6 +16,7 @@ int ex_chessboard() {
 
 int main()
 try {
+
     //  ex_my_window();
     ex_chessboard();
 }
