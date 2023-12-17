@@ -15,7 +15,7 @@ struct Figure : Graph_lib::Image {
         this->set_mask(p, size, size);
         win.attach(*this);
     }
-
+    bool do_big_step = false;
     virtual bool is_white() = 0;
 
     void attach(const Cell &c);

@@ -6,11 +6,11 @@ using namespace Graph_lib;
 
 int ex_chessboard() {
     Chessboard board{Point{100, 100}};
+    board.color(116);
     GamePosition game_position;
     game_position.reading("../game_pos.txt");
     game_position.visualise(board);
-    board.wait_for_button();
-    return 0;
+    return gui_main();
 
 }
 
