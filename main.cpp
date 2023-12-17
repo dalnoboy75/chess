@@ -8,7 +8,7 @@ int ex_chessboard() {
     Chessboard board{Point{100, 100}};
     board.color(116);
     GamePosition game_position;
-    game_position.reading("../game_pos.txt");
+    game_position.reading("../chess/game_pos.txt");
     game_position.visualise(board);
     return gui_main();
 
