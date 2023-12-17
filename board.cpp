@@ -633,7 +633,10 @@ void Chessboard::delete_moves() {
 void Chessboard::draw_check_inf() {
     Graph_lib::Text t{Point{300,300},"CHECK"};
     t.set_font_size(50);
-    this->attach(t);
+    t.set_color(Color::black);
+    t.set_font(Graph_lib::Font::times_bold);
+    attach(t);
+    put_on_top(t);
     std::this_thread::sleep_for(2000ms);
-    this->detach(t);
+    detach(t);
 }
