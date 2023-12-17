@@ -8,7 +8,7 @@ int ex_chessboard() {
     Chessboard board{Point{100, 100}};
     board.color(116);
     GamePosition game_position;
-    game_position.reading("../game_pos.txt");
+    game_position.reading("../chess/game_pos.txt");
     game_position.visualise(board);
     Text* t = new Text{Point{50,360},""};
     t->set_font_size(70);
@@ -21,6 +21,7 @@ int ex_chessboard() {
 
 int main()
 try {
+
     //  ex_my_window();
     ex_chessboard();
 }

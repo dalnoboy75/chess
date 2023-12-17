@@ -21,7 +21,7 @@ struct Cell : Graph_lib::Button {
 
     void activate() {
         if (pw)
-            pw->color(FL_SELECTION_COLOR);
+            pw->color(101);
     }
 
 

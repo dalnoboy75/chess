@@ -403,7 +403,7 @@ namespace Graph_lib {
     };
 
     struct Marks : Marked_polyline {
-        Marks(const std::string &m) : Marked_polyline{m} { set_color(Color{Color::invisible}); }
+        Marks(const std::string &m) : Marked_polyline{m} { set_color(Color{Color::invisible});}
     };
 
     struct Mark : Marks {

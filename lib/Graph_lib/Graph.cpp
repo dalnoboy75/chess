@@ -329,6 +329,7 @@ void draw_mark (Point xy, char c)
   static const int dx = 4;
   static const int dy = 4;
   std::string m{c};
+  fl_font (FL_COURIER_BOLD, 19);
   fl_draw(m.c_str(), xy.x - dx, xy.y + dy);
 }
 
