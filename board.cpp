@@ -35,7 +35,7 @@ std::string digits() {
 
 
 Chessboard::Chessboard(Point xy)
-        : Graph_lib::Window{xy, width, height, "Chess"}, x_labels{letters()}, y_labels{digits()}, check{Point{50,400},""} {
+        : Graph_lib::Window{xy, width, height, "Chess for KIDS"}, x_labels{letters()}, y_labels{digits()}, check{Point{50,400},""} {
     size_range(width, height, width, height);  // fixed window size
     check.set_font_size(70);
     check.set_font(FL_HELVETICA_BOLD);
@@ -536,6 +536,8 @@ void Chessboard::virtual_move_bishop() {
                 if (selected->get_figure().is_white() != c_1->get_figure().is_white()) {
                     Circle *vm = new Circle({c_1->center().x, c_1->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_1->has_figure() && c_1->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -560,6 +562,8 @@ void Chessboard::virtual_move_bishop() {
                 if (selected->get_figure().is_white() != c_2->get_figure().is_white()) {
                     Circle *vm = new Circle({c_2->center().x, c_2->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_2->has_figure() && c_2->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -584,6 +588,8 @@ void Chessboard::virtual_move_bishop() {
                 if (selected->get_figure().is_white() != c_3->get_figure().is_white()) {
                     Circle *vm = new Circle({c_3->center().x, c_3->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_3->has_figure() && c_3->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -608,6 +614,8 @@ void Chessboard::virtual_move_bishop() {
                 if (selected->get_figure().is_white() != c_4->get_figure().is_white()) {
                     Circle *vm = new Circle({c_4->center().x, c_4->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_4->has_figure() && c_4->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -634,6 +642,8 @@ void Chessboard::virtual_move_rook() {
                 if (selected->get_figure().is_white() != c_1->get_figure().is_white()) {
                     Circle *vm = new Circle({c_1->center().x, c_1->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_1->has_figure() && c_1->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -655,6 +665,8 @@ void Chessboard::virtual_move_rook() {
                 if (selected->get_figure().is_white() != c_2->get_figure().is_white()) {
                     Circle *vm = new Circle({c_2->center().x, c_2->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_2->has_figure() && c_2->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -679,6 +691,8 @@ void Chessboard::virtual_move_rook() {
                 if (selected->get_figure().is_white() != c_3->get_figure().is_white()) {
                     Circle *vm = new Circle({c_3->center().x, c_3->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_3->has_figure() && c_3->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -700,6 +714,8 @@ void Chessboard::virtual_move_rook() {
                 if (selected->get_figure().is_white() != c_4->get_figure().is_white()) {
                     Circle *vm = new Circle({c_4->center().x, c_4->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c_4->has_figure() && c_4->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -719,6 +735,8 @@ void Chessboard::virtual_move_king() {
                 if (!c->has_figure() or (c->get_figure().is_white() != selected->get_figure().is_white())) {
                     Circle *vm = new Circle({c->center().x, c->center().y}, 10);
                     vm->set_fill_color(101);
+                    if (c->has_figure() && c->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
                 }
@@ -746,6 +764,8 @@ void Chessboard::virtual_move_knight() {
             if (!c->has_figure() or (c->get_figure().is_white() != selected->get_figure().is_white())) {
                 Circle *vm = new Circle({c->center().x, c->center().y}, 10);
                 vm->set_fill_color(101);
+                if (c->has_figure() && c->get_figure().get_type() == king)
+                    vm->set_fill_color(FL_DARK_RED);
                 this->green_circles.push_back(vm);
                 this->attach(*vm);
             }
@@ -763,10 +783,12 @@ void Chessboard::virtual_move() {
                     vm->set_fill_color(101);
                     this->green_circles.push_back(vm);
                     this->attach(*vm);
-                    Cell *cs = &this->at('a' + selected->symbol, selected->number + 2);
-                    if (selected->number == 2 && !cs->has_figure()) {
+                    if (selected->number == 2 && !this->at('a' + selected->symbol, selected->number + 2).has_figure()) {
+                        Cell *cs = &this->at('a' + selected->symbol, selected->number + 2);
                         Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 10);
                         vm2->set_fill_color(101);
+                        if (cs->has_figure() && cs->get_figure().get_type() == king)
+                            vm->set_fill_color(FL_DARK_RED);
                         this->green_circles.push_back(vm2);
                         this->attach(*vm2);
                     }
@@ -795,6 +817,8 @@ void Chessboard::virtual_move() {
             if (c1->has_figure() and !c1->get_figure().is_white()) {
                 Circle *vm = new Circle({c1->center().x, c1->center().y}, 10);
                 vm->set_fill_color(101);
+                if (c1->has_figure() && c1->get_figure().get_type() == king)
+                    vm->set_fill_color(FL_DARK_RED);
                 this->green_circles.push_back(vm);
                 this->attach(*vm);
             }
@@ -804,6 +828,8 @@ void Chessboard::virtual_move() {
             if (c2->has_figure() and !c2->get_figure().is_white()) {
                 Circle *vm = new Circle({c2->center().x, c2->center().y}, 10);
                 vm->set_fill_color(101);
+                if (c2->has_figure() && c2->get_figure().get_type() == king)
+                    vm->set_fill_color(FL_DARK_RED);
                 this->green_circles.push_back(vm);
                 this->attach(*vm);
             }
@@ -816,10 +842,12 @@ void Chessboard::virtual_move() {
                 vm->set_fill_color(101);
                 this->green_circles.push_back(vm);
                 this->attach(*vm);
-                Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
-                if (selected->number == 7 && !cs->has_figure()) {
+                if (selected->number == 7 && !this->at('a' + selected->symbol, selected->number - 2).has_figure()) {
+                    Cell *cs = &this->at('a' + selected->symbol, selected->number - 2);
                     Circle *vm2 = new Circle({cs->center().x, cs->center().y}, 10);
                     vm2->set_fill_color(101);
+                    if (cs->has_figure() && cs->get_figure().get_type() == king)
+                        vm->set_fill_color(FL_DARK_RED);
                     this->green_circles.push_back(vm2);
                     this->attach(*vm2);
                 }
@@ -848,6 +876,8 @@ void Chessboard::virtual_move() {
             if (c1->has_figure() and c1->get_figure().is_white()) {
                 Circle *vm = new Circle({c1->center().x, c1->center().y}, 10);
                 vm->set_fill_color(101);
+                if (c1->has_figure() && c1->get_figure().get_type() == king)
+                    vm->set_fill_color(FL_DARK_RED);
                 this->green_circles.push_back(vm);
                 this->attach(*vm);
             }
@@ -857,6 +887,8 @@ void Chessboard::virtual_move() {
             if (c2->has_figure() and c2->get_figure().is_white()) {
                 Circle *vm = new Circle({c2->center().x, c2->center().y}, 10);
                 vm->set_fill_color(101);
+                if (c2->has_figure() && c2->get_figure().get_type() == king)
+                    vm->set_fill_color(FL_DARK_RED);
                 this->green_circles.push_back(vm);
                 this->attach(*vm);
             }
