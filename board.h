@@ -30,6 +30,7 @@ struct Chessboard : My_window {
 
     static constexpr int N = 8;  // board N by N
     static constexpr int N_max = 8;
+    int step_cnt = 0;
 
     static_assert(N <= N_max,
                   "do not allow board larger than N_max by N_max");
@@ -59,7 +60,7 @@ private:
         auto &btn = Graph_lib::reference_to<Cell>(widget);
         dynamic_cast<Chessboard &>(btn.window()).clicked(btn);
     }
-    bool is_check(bool color); // true - белый, false - черный
+    int is_check(bool color); // true - белый, false - черный
 
     void virtual_move();
 
@@ -78,6 +79,7 @@ private:
     void virtual_move_knight();
 
     void draw_check_inf();
+    void game_over();
 };
 
 #endif  // #ifndef BOARD_H
