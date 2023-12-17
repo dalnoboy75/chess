@@ -35,7 +35,7 @@ std::string digits() {
 
 
 Chessboard::Chessboard(Point xy)
-        : My_window{xy, width, height, "Checkerboard"}, x_labels{letters()}, y_labels{digits()} {
+        : Graph_lib::Window{xy, width, height, "Chessboard"}, x_labels{letters()}, y_labels{digits()} {
     size_range(width, height, width, height);  // fixed window size
 
     for (int i = 0; i < N; ++i)
@@ -233,7 +233,7 @@ void Chessboard::move_figure(Cell &c) {
                     selected->get_figure_ptr()->do_big_step = true;
                 }
                 else {
-                    selected->get_figure_ptr()->do_big_step = false;
+                    all_pawns_no_big_step();
                 }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
@@ -258,7 +258,7 @@ void Chessboard::move_figure(Cell &c) {
                 if (c.number == 5 && selected->number == 7)
                     selected->get_figure_ptr()->do_big_step = true;
                 else {
-                    selected->get_figure_ptr()->do_big_step = true;
+                    all_pawns_no_big_step();
                 }
                 Cell &c1 = *selected;
                 c.attach_figure(c1.detach_figure());
@@ -283,6 +283,7 @@ void Chessboard::move_figure(Cell &c) {
                     c.eat_figure();
                 }
                 c.attach_figure(c1.detach_figure());
+                all_pawns_no_big_step();
                 if (is_check(which_move) == 1)
                     draw_check_inf();
                 else if (is_check(which_move) == 2)
@@ -305,6 +306,7 @@ void Chessboard::move_figure(Cell &c) {
                     draw_check_inf();
                 else if (is_check(which_move) == 2)
                     game_over();
+                all_pawns_no_big_step();
                 this->which_move = !this->which_move;
             }
 
@@ -324,6 +326,7 @@ void Chessboard::move_figure(Cell &c) {
                 draw_check_inf();
             else if (is_check(which_move) == 2)
                 game_over();
+            all_pawns_no_big_step();
             this->which_move = !this->which_move;
         }
     } else if (selected->get_figure().get_type() == bishop) {
@@ -378,6 +381,7 @@ void Chessboard::move_figure(Cell &c) {
                     draw_check_inf();
                 else if (is_check(which_move) == 2)
                     game_over();
+                all_pawns_no_big_step();
                 this->which_move = !this->which_move;
 
             }
@@ -434,9 +438,11 @@ void Chessboard::move_figure(Cell &c) {
                     draw_check_inf();
                 else if (is_check(which_move) == 2)
                     game_over();
+                all_pawns_no_big_step();
                 this->which_move = !this->which_move;
 
             }
+        }
             int k = 0;
             if (c.number == selected->number) {
                 for (int i = std::min((selected->symbol), c.symbol) + 1;
@@ -455,6 +461,7 @@ void Chessboard::move_figure(Cell &c) {
                         draw_check_inf();
                     else if (is_check(which_move) == 2)
                         game_over();
+                    all_pawns_no_big_step();
                     this->which_move = !this->which_move;
                 }
             } else if (c.symbol == selected->symbol) {
@@ -473,11 +480,12 @@ void Chessboard::move_figure(Cell &c) {
                         draw_check_inf();
                     else if (is_check(which_move) == 2)
                         game_over();
+                    all_pawns_no_big_step();
                     this->which_move = !this->which_move;
                 }
 
             }
-        }
+
 
     } else if (selected->get_figure().get_type() == king) {
         if ((abs(c.symbol - selected->symbol) == 1 && abs(c.number - selected->number) <= 1) ||
@@ -493,6 +501,7 @@ void Chessboard::move_figure(Cell &c) {
                 draw_check_inf();
             else if (is_check(which_move) == 2)
                 game_over();
+            all_pawns_no_big_step();
             this->which_move = !this->which_move;
         }
     }
@@ -1058,4 +1067,12 @@ void Chessboard::draw_check_inf() {
 }
 void Chessboard::game_over() {
     cout << "Игра окончена";
+}
+void Chessboard::all_pawns_no_big_step() {
+    for (int i = 0; i < 64; ++i) {
+        Cell& c = cells[i];
+        if (c.has_figure() && c.get_figure().get_type() == pawn)
+            c.get_figure().do_big_step = false;
+    }
+
 }

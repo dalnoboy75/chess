@@ -25,7 +25,7 @@ private:
     void quit() { hide(); }
 };
 
-struct Chessboard : My_window {
+struct Chessboard : Graph_lib::Window {
     Chessboard(Point xy);
 
     static constexpr int N = 8;  // board N by N
@@ -47,7 +47,7 @@ struct Chessboard : My_window {
 private:
     bool which_move = true;
     static constexpr int margin = 30;
-    static constexpr int width = N * Cell::size + 2 * margin + 70;
+    static constexpr int width = N * Cell::size + 2 * margin;
     static constexpr int height = N * Cell::size + 2 * margin;
     vector<Graph_lib::Circle *> green_circles;
     Graph_lib::Vector_ref<Cell> cells;
@@ -80,6 +80,7 @@ private:
 
     void draw_check_inf();
     void game_over();
+    void all_pawns_no_big_step();
 };
 
 #endif  // #ifndef BOARD_H
