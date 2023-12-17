@@ -63,6 +63,7 @@ Chessboard::Chessboard(Point xy)
 
 
 void Chessboard::clicked(Cell &c) {
+    if(is_finished) return;
     if (!selected) {
         selected = &c;
         c.activate();
@@ -1013,7 +1014,7 @@ int Chessboard::is_check(bool color) {
                 c.get_figure().is_white() == color) {
                 return 1;
             }
-            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number + 1)
+            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number - 1)
                 return 1;
             else if (!c.has_figure())
                 continue;
@@ -1031,7 +1032,7 @@ int Chessboard::is_check(bool color) {
                 c.get_figure().is_white() == color) {
                 return 1;
             }
-            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number + 1)
+            else if (c.has_figure() && c.get_figure().get_type() == pawn && c.get_figure().is_white() == color && i == KING.number - 1)
                 return 1;
             else if (!c.has_figure())
                 continue;
@@ -1056,17 +1057,32 @@ int Chessboard::is_check(bool color) {
                 return 1;
         }
     }
-
+    hide_check_inf();
     return 0;
 }
 
 void Chessboard::draw_check_inf() {
+    if (!which_move){
+        check->set_label("CHECK FOR WHITE");
+    }
+    else{
+        check->set_label("CHECK FOR BLACK");
+    }
 
-    cout << "Check!\n";
     //
 }
 void Chessboard::game_over() {
-    cout << "Игра окончена";
+    if(which_move){
+        check->set_label("WHITE WIN");
+    }
+    else{
+        check->set_label("BLACK WIN");
+    }
+    is_finished = true;
+}
+
+void Chessboard::hide_check_inf() {
+    check->set_label("");
 }
 void Chessboard::all_pawns_no_big_step() {
     for (int i = 0; i < 64; ++i) {

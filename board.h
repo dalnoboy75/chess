@@ -27,10 +27,11 @@ private:
 
 struct Chessboard : Graph_lib::Window {
     Chessboard(Point xy);
-
+    static inline bool is_finished = false;
     static constexpr int N = 8;  // board N by N
     static constexpr int N_max = 8;
     int step_cnt = 0;
+    Graph_lib::Text* check;
 
     static_assert(N <= N_max,
                   "do not allow board larger than N_max by N_max");
@@ -80,6 +81,7 @@ private:
     void virtual_move_knight();
 
     void draw_check_inf();
+    void hide_check_inf();
     void game_over();
     void all_pawns_no_big_step();
 };
